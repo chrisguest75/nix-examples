@@ -26,17 +26,20 @@ nix-env --help
 ```
 
 ## Example 1 - Simple NIX
-Demonstrates how to build a python app in Nix
-Steps [README.md](./01_simple_python/README.md)  
+Demonstrates how to build a python app in Nix  
+Steps [README.md](./01_simple_python/README.md)   
 
-## Example 2 - Simple Docker
-Demonstrates how to build a docker app in Nix
-Steps [README.md](./02_simple_docker/README.md)  
+## Example 2 - Single Package Docker Image
+Demonstrates how to build a single package docker image in Nix  
+Steps [README.md](./02_single_package_docker/README.md)   
 
+## Example 3 - Multi Package Docker Image
+Demonstrates how to build a multi package docker image in Nix
+Steps [README.md](./03_multi_package_docker/README.md)   
 
 ## Example 4 - Installing Software
-Demonstrates how to install software using nix package manager
-Steps [README.md](./04_instaling_software/README.md)  
+Demonstrates how to install software using nix package manager  
+Steps [README.md](./04_instaling_software/README.md)   
 
 
 ## Resources

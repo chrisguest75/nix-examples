@@ -3,6 +3,11 @@ Demonstrates how to build a multi package docker image in Nix
 
 The pkg for pkg.dockerTools.
 
+NOTE: 
+* curl does not work because of the bundle.crt
+* locate bundle.crt
+
+
 ## Examples of how to build Docker images
 [Examples](https://github.com/NixOS/nixpkgs/blob/master/pkgs/build-support/docker/examples.nix)  
 

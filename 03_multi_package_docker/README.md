@@ -13,4 +13,10 @@ nix-build
 docker load < result
 docker images
 docker run -t kuttl:bh3mi99nk7f1vfisv9200c0b2dwbdblx
+docker run -it --entrypoint /bin/bash kuttl:bh3mi99nk7f1vfisv9200c0b2dwbdblx
+
+# there is no ls cmd so we use echo.
+echo *
+echo /bin/*
+echo $PATH
 ```

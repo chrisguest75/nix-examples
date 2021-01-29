@@ -15,6 +15,7 @@ pkgs.dockerTools.buildImage {
       pkgs.openssl
       pkgs.kubernetes-helm
       pkgs.kubectl
+      pkgs.nss-cacert
     ];  
 }
 

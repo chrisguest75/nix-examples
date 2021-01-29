@@ -44,7 +44,7 @@ Demonstrates how to build a single package docker image in Nix
 Steps [README.md](./02_single_package_docker/README.md)   
 
 ## Example 3 - Multi Package Docker Image
-Demonstrates how to build a multi package docker image in Nix
+Demonstrates how to build a multi package docker image in Nix  
 Steps [README.md](./03_multi_package_docker/README.md)   
 
 ## Example 4 - Installing Software

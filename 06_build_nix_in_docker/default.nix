@@ -9,5 +9,7 @@ pkgs.dockerTools.buildImage {
   created = "now";
   contents = [
       pkgs.bash
+      pkgs.curl
+      #pkgs.nss-cacert
     ];  
 }

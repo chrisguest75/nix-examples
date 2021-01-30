@@ -2,10 +2,19 @@
 Building a Nix image inside a container
 
 ```sh
-docker run -v $(pwd):/mnt -it --entrypoint /bin/sh nixos/nix     
+# build nix
+docker build -t nix .
+# build the image     
+docker run -v $(pwd):/build -it nix     
 
-cd /mnt 
-nix-build
+# debugging
+docker run -v $(pwd):/build -it --entrypoint /bin/sh nix    
 ```
 
+```sh
+# load image
+docker load < docker-image
+docker images
+docker run -it bash:latest
+```
 

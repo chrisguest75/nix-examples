@@ -1,6 +1,7 @@
 FROM nixos/nix
 #FROM ubuntu:20.04
 
-WORKDIR /workbench
-COPY default.nix default.nix
-RUN nix-build
+WORKDIR /build
+COPY build-image.sh /usr/bin/build-image.sh
+CMD ["build-image.sh"]
+

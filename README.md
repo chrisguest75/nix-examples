@@ -28,6 +28,10 @@ systemctl status nix-daemon
 nix-env --help
 ```
 
+## Example 0 - Nix Playground
+Playground based on building nix in docker
+Steps [README.md](./00_playground/README.md)   
+
 ## Example 1 - Simple NIX
 Demonstrates how to build a python app in Nix  
 Steps [README.md](./01_simple_python/README.md)   

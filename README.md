@@ -51,6 +51,9 @@ Steps [README.md](./03_multi_package_docker/README.md)
 Demonstrates how to install software using nix package manager  
 Steps [README.md](./04_instaling_software/README.md)   
 
+## Example 6 - Build Nix docker image in docker 
+Building a Nix image inside a container 
+Steps [README.md](./06_build_nix_in_docker/README.md)   
 
 ## Resources
 

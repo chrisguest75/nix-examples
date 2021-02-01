@@ -28,6 +28,8 @@ systemctl status nix-daemon
 nix-env --help
 ```
 
+[NixPkgs](https://github.com/nixos/nixpkgs)  
+
 ## Example 0 - Nix Playground
 Playground based on building nix in docker
 Steps [README.md](./00_playground/README.md)   

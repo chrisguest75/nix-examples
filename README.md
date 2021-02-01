@@ -8,6 +8,7 @@ TODO:
 1) Build a nix docker image inside a container
 1) curl is broken in the docker images as it needs bundle.crt
 1) How do I view dependencies of packages? 
+1) [Pinning packages](https://nix.dev/tutorials/towards-reproducibility-pinning-nixpkgs.html)  
 
 ## Install NIX
 
@@ -27,6 +28,8 @@ systemctl status nix-daemon
 # 
 nix-env --help
 ```
+
+[NixPkgs](https://github.com/nixos/nixpkgs)  
 
 ## Example 0 - Nix Playground
 Playground based on building nix in docker

@@ -8,6 +8,7 @@ TODO:
 1) Build a nix docker image inside a container
 1) curl is broken in the docker images as it needs bundle.crt
 1) How do I view dependencies of packages? 
+1) [Pinning packages](https://nix.dev/tutorials/towards-reproducibility-pinning-nixpkgs.html)  
 
 ## Install NIX
 
@@ -28,6 +29,12 @@ systemctl status nix-daemon
 nix-env --help
 ```
 
+[NixPkgs](https://github.com/nixos/nixpkgs)  
+
+## Example 0 - Nix Playground
+Playground based on building nix in docker
+Steps [README.md](./00_playground/README.md)   
+
 ## Example 1 - Simple NIX
 Demonstrates how to build a python app in Nix  
 Steps [README.md](./01_simple_python/README.md)   
@@ -37,13 +44,16 @@ Demonstrates how to build a single package docker image in Nix
 Steps [README.md](./02_single_package_docker/README.md)   
 
 ## Example 3 - Multi Package Docker Image
-Demonstrates how to build a multi package docker image in Nix
+Demonstrates how to build a multi package docker image in Nix  
 Steps [README.md](./03_multi_package_docker/README.md)   
 
 ## Example 4 - Installing Software
 Demonstrates how to install software using nix package manager  
 Steps [README.md](./04_instaling_software/README.md)   
 
+## Example 6 - Build Nix docker image in docker 
+Building a Nix image inside a container 
+Steps [README.md](./06_build_nix_in_docker/README.md)   
 
 ## Resources
 

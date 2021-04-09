@@ -8,7 +8,8 @@ pkgs.dockerTools.buildImage {
   };
   created = "now";
   contents = [
-      pkgs.curl
+      pkgs.cacert
+      pkgs.curlFull
       pkgs.bash
       pkgs.git
       pkgs.openssh
@@ -18,6 +19,7 @@ pkgs.dockerTools.buildImage {
     ];  
 }
 
+#pkgs.nss-cacert
 #krew
 #pkgs.ca-certificates
 #pkgs.openssh-client

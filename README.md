@@ -11,6 +11,7 @@ TODO:
 1) [Pinning packages](https://nix.dev/tutorials/towards-reproducibility-pinning-nixpkgs.html)  
 
 ## Install NIX
+NOTE: Or use [playground](##Example-0---Nix-playground) to test if you'd prefer not to install Nix
 
 [Install-Nix](https://nixos.org/guides/install-nix.html)
 
@@ -31,8 +32,8 @@ nix-env --help
 
 [NixPkgs](https://github.com/nixos/nixpkgs)  
 
-## Example 0 - Nix Playground
-Playground based on building nix in docker
+## Example 0 - Nix playground
+Playground based on building nix in Docker (doesn't require local Nix install)  
 Steps [README.md](./00_playground/README.md)   
 
 ## Example 1 - Simple NIX
@@ -52,7 +53,7 @@ Demonstrates how to install software using nix package manager
 Steps [README.md](./04_instaling_software/README.md)   
 
 ## Example 6 - Build Nix docker image in docker 
-Building a Nix image inside a container 
+Building a Nix image inside a container  
 Steps [README.md](./06_build_nix_in_docker/README.md)   
 
 ## Resources

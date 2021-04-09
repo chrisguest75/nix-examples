@@ -1,18 +1,20 @@
 # README
-Playground based on building nix in docker
+Playground based on building nix in Docker (doesn't require local Nix install)
 
 ## Build and Run
 ```sh
 # build nix
 docker build -t nix-playground .
-# debugging
-docker run -v $(pwd):/build -it --entrypoint /bin/sh nix-playground    
+# debugging and host repo in build folder
+docker run -v $(pwd)/..:/build -it --entrypoint /bin/sh nix-playground    
 ```
 
 ## Configure
 ```sh
 # install man to view manpages
 nix-env -iA nixpkgs.man
+# show nix-env man
+man nix-env
 ```
 
 ## Investigate
@@ -40,7 +42,12 @@ nix run nixpkgs.nix-info -c nix-info -m
 ```sh
 # run shell with bash
 nix run nixpkgs.bash
-# run shell with curl
+# run shell with curl (inside bash shell)
 nix run nixpkgs.curl 
 env
+curl -I https://www.google.com
 ```
+
+## Follow steps in 01_simple_python
+You can use the shell in the container to run some of the other examples without installing Nix locally
+Steps [README.md](./01_simple_python/README.md)  

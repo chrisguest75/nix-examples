@@ -25,6 +25,10 @@ docker run -it --entrypoint /bin/bash kuttl:bh3mi99nk7f1vfisv9200c0b2dwbdblx
 echo *
 echo /bin/*
 echo $PATH
+
+# you have to set the SSL_CERT_FILE variable to get certs
+export SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt
+curl -I https://www.google.com
 ```
 
 ## Playground
@@ -47,7 +51,8 @@ echo *
 echo /bin/*
 echo $PATH
 
-# THIS IS NOT WORKING
+# you have to set the SSL_CERT_FILE variable to get certs
+export SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt
 curl -I https://www.google.com
 
 ```

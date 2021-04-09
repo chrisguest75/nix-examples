@@ -8,7 +8,8 @@ pkgs.dockerTools.buildImage {
   };
   created = "now";
   contents = [
-      pkgs.curl
+      pkgs.cacert
+      pkgs.curlFull
       pkgs.bash
       pkgs.git
       pkgs.openssh

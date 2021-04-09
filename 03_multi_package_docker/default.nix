@@ -15,10 +15,10 @@ pkgs.dockerTools.buildImage {
       pkgs.openssl
       pkgs.kubernetes-helm
       pkgs.kubectl
-      pkgs.nss-cacert
     ];  
 }
 
+#pkgs.nss-cacert
 #krew
 #pkgs.ca-certificates
 #pkgs.openssh-client

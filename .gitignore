@@ -1,2 +1,4 @@
 result
 docker-image
+*.egg-info
+myimage

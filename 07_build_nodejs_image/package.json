@@ -1,0 +1,16 @@
+{
+  "name": "07_build_nodejs_image",
+  "version": "1.0.0",
+  "description": "Building a Nix nodejs image",
+  "main": "index.js",
+  "dependencies": {
+    "pino": "^5.17.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

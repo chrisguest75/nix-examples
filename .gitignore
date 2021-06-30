@@ -2,3 +2,4 @@ result
 docker-image
 *.egg-info
 myimage
+node_modules

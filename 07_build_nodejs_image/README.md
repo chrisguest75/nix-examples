@@ -3,15 +3,24 @@ Building a Nix nodejs image
 
 TODO:
 * passwd is missing and crashes userinfo
+    * glibc doesn't fix it and comparing with distroless shows completely different structure 
 * final image should not have bash or anymore tools than necessary. 
+* images are 350mb 
 
+
+## Overview
+We create three images:
+* `buildnixnode` - used to build nixnode image (the baseimage builder)
+* `nixnode` - used to build the imae containing nodejs and npm
+* `nixnodeapp` - the final image with the application in it
 
 ## Build nix image builer (buildnixnode)
 ```sh
 # build nix
 docker build -t buildnixnode -f build.nixnode.Dockerfile .
 
-# build the image (creates a docker-image file in current path)    
+# build the image (creates a docker-image file in current path)  
+# if altering the default.nix rerun this 
 docker run -v $(pwd):/build -it buildnixnode     
 ```
 
@@ -35,10 +44,14 @@ node --version
 
 ## Build node app (nixnodeapp uses nixnode:latest)
 ```sh
+# build the app image
 docker build --no-cache --target prod -t nixnodeapp:latest -f app.Dockerfile .
 
-docker run -it nixnodeapp  
+# run the appimage
+docker run -it nixnodeapp:latest  
 
+# look inside the app image
+dive nixnodeapp:latest 
 ```
 
 ## Vulnerability scanning
@@ -60,7 +73,7 @@ nix-build --show-trace
 # debugging building app
 docker run -v $(pwd):/build -it --entrypoint /bin/bash nixnode:latest  
 
-# inside the container.
+# inside the container - copy the app files.
 mkdir /scratch
 cp /build/package.json /scratch
 cp /build/package-lock.json /scratch
@@ -70,10 +83,16 @@ node index.js
 
 # debugging the built app
 docker run -v $(pwd):/build -it --entrypoint /bin/bash nixnodeapp:latest  
+
+# inspect the image
+dive nixnodeapp:latest  
 ```
 
 
 
+# Resourcesa
+* docker-nixpkgs [here](https://github.com/nix-community/docker-nixpkgs)
 
+https://github.com/nix-community/docker-nixpkgs/blob/master/images/devcontainer/default.nix
 
-
+https://github.com/zimbatm/vscode-devcontainer-nix

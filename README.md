@@ -1,12 +1,11 @@
 # README
 
 TODO:
-1) Add some examples of using nix to install software.  
-1) Build a more complex docker image
+1) [Pinning packages](https://nix.dev/tutorials/towards-reproducibility-pinning-nixpkgs.html)  
 1) Build a custom nix package
 1) Understand the Nix language and API
 1) How do I view dependencies of packages? 
-1) [Pinning packages](https://nix.dev/tutorials/towards-reproducibility-pinning-nixpkgs.html)  
+1) Understand if vulnerability detectors are just not seeing the issues.
 
 ## Install NIX
 NOTE: Or use [playground](##Example-0---Nix-playground) to test if you'd prefer not to install Nix

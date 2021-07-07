@@ -54,6 +54,10 @@ Steps [README.md](./04_instaling_software/README.md)
 Building a Nix image inside a container  
 Steps [README.md](./06_build_nix_in_docker/README.md)   
 
+## Example 7 - Build Nix nodejs image in docker 
+Building a Nix nodejs image
+Steps [README.md](./07_build_nodejs_image/README.md)  
+
 ## Resources
 
 [Minimal Docker Images](https://jpetazzo.github.io/2020/04/01/quest-minimal-docker-images-part-3/)  

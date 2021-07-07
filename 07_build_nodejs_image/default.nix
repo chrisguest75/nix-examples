@@ -6,11 +6,12 @@ pkgs.dockerTools.buildImage {
   name = "nixnode";
   tag = "latest";
 
+  # setup shadow, bashrc
+  #mkdir home
+  #cp -r ${./root/etc} etc
+  #chmod +w etc etc/group etc/passwd etc/shadow
+
   extraCommands = ''
-      # setup shadow, bashrc
-      #mkdir home
-      #cp -r ${./root/etc} etc
-      #chmod +w etc etc/group etc/passwd etc/shadow
   '';
 
   config = {

@@ -6,11 +6,6 @@ pkgs.dockerTools.buildImage {
   name = "nixnode";
   tag = "latest";
 
-  # setup shadow, bashrc
-  #mkdir home
-  #cp -r ${./root/etc} etc
-  #chmod +w etc etc/group etc/passwd etc/shadow
-
   extraCommands = ''
   '';
 
@@ -22,10 +17,8 @@ pkgs.dockerTools.buildImage {
   };
   created = "now";
   contents = [
-      #pkgs.glibc
-      pkgs.shadow
-      pkgs.bash
-      pkgs.coreutils
+      #pkgs.bash
+      #pkgs.coreutils
       pkgs.nodejs
     ];  
 }

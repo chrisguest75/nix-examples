@@ -1,13 +1,6 @@
 # README
 Building a Nix nodejs image
 
-TODO:
-* passwd is missing and crashes userinfo
-    * glibc doesn't fix it and comparing with distroless shows completely different structure 
-* final image should not have bash or anymore tools than necessary. 
-* images are 350mb 
-
-
 ## Overview
 We create three images:
 * `buildnixnode` - used to build nixnode image (the baseimage builder)
@@ -92,7 +85,4 @@ dive nixnodeapp:latest
 
 # Resourcesa
 * docker-nixpkgs [here](https://github.com/nix-community/docker-nixpkgs)
-
-https://github.com/nix-community/docker-nixpkgs/blob/master/images/devcontainer/default.nix
-
-https://github.com/zimbatm/vscode-devcontainer-nix
+* Good example nix buildImage [here](https://github.com/nix-community/docker-nixpkgs/blob/master/images/devcontainer/default.nix)  

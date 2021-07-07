@@ -5,8 +5,6 @@ TODO:
 1) Build a more complex docker image
 1) Build a custom nix package
 1) Understand the Nix language and API
-1) Build a nix docker image inside a container
-1) curl is broken in the docker images as it needs bundle.crt
 1) How do I view dependencies of packages? 
 1) [Pinning packages](https://nix.dev/tutorials/towards-reproducibility-pinning-nixpkgs.html)  
 

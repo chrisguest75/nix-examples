@@ -45,8 +45,8 @@ docker run -v $(pwd):/build -it --entrypoint /bin/sh nix
 nix-build --show-trace
 ```
 
-
-
+# Resources
+* Good example nix buildImage [here](https://github.com/nix-community/docker-nixpkgs/blob/master/images/devcontainer/default.nix)  
 
 
 

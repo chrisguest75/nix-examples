@@ -7,6 +7,7 @@ TODO:
 1) How do I view dependencies of packages? 
 1) Understand if vulnerability detectors are just not seeing the issues.  What is vulnix?
 1) These are some good examples - https://github.com/foggyubiquity/containizen  
+1) Nix flakes https://nixos.wiki/wiki/Flakes.  Replacing nix-channels.
 
 ## Install NIX
 NOTE: Or use [playground](##Example-0---Nix-playground) to test if you'd prefer not to install Nix

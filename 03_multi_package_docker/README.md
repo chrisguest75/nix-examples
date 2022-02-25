@@ -1,18 +1,23 @@
 # Multi Package Docker Image
+
 Demonstrates how to build a multi package docker image in Nix
 
 The pkg for pkg.dockerTools.
 
-NOTE: 
+NOTE:
+
 * curl does not work because of the bundle.crt
 * locate bundle.crt
 ## Examples of how to build Docker images
+
 [Examples](https://github.com/NixOS/nixpkgs/blob/master/pkgs/build-support/docker/examples.nix)  
 
 [Interface](https://github.com/NixOS/nixpkgs/blob/master/pkgs/build-support/docker/default.nix)
 
 ## Local
+
 Follow if you have installed Nix locally
+
 ```sh
 nix-build
 docker load < result
@@ -32,13 +37,19 @@ curl -I https://www.google.com
 ```
 
 ## Playground
+
 Follow if you are in the playground
+
 ```sh
 # in playground
 nix-build
 # copy link to volume mounted path on host
 cp ./result ./myimage
+```
 
+Once image is built then import it on the host  
+
+```sh
 # open another local terminal on the host
 docker load < myimage
 # take the loaded image name and use when you run
@@ -54,5 +65,4 @@ echo $PATH
 # you have to set the SSL_CERT_FILE variable to get certs
 export SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt
 curl -I https://www.google.com
-
 ```

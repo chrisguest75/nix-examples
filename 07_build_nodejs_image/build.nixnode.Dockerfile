@@ -3,5 +3,5 @@ FROM nixos/nix
 
 WORKDIR /build
 COPY build-image.sh /usr/bin/build-image.sh
-CMD ["build-image.sh"]
+CMD ["/usr/bin/build-image.sh"]
 

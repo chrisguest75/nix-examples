@@ -1,13 +1,17 @@
 # README
+
 Building a Nix nodejs image
 
 ## Overview
+
 We create three images:
+
 * `buildnixnode` - used to build nixnode image (the baseimage builder)
 * `nixnode` - used to build the imae containing nodejs and npm
 * `nixnodeapp` - the final image with the application in it
 
 ## Build nix image builer (buildnixnode)
+
 ```sh
 # build nix
 docker build -t buildnixnode -f build.nixnode.Dockerfile .
@@ -18,6 +22,7 @@ docker run -v $(pwd):/build -it buildnixnode
 ```
 
 ## Load image into registry
+
 ```sh
 # load image into local registry (builds nixnode)
 docker load < docker-image
@@ -27,6 +32,7 @@ docker images
 ```
 
 ## Inside build container
+
 ```sh
 # jump into bash in container
 docker run -it --entrypoint /bin/bash nixnode:latest 
@@ -36,6 +42,7 @@ node --version
 ```
 
 ## Build node app (nixnodeapp uses nixnode:latest)
+
 ```sh
 # build the app image
 docker build --no-cache --target prod -t nixnodeapp:latest -f app.Dockerfile .
@@ -48,13 +55,16 @@ dive nixnodeapp:latest
 ```
 
 ## Vulnerability scanning
+
 ```sh
 # zero vulnerabilities for bash
 docker scan nixnodeapp:latest 
 ```
 
-## Troubleshooting 
+## Troubleshooting
+
 ### Builder
+
 ```sh
 # debugging
 docker run -v $(pwd):/build -it --entrypoint /bin/sh buildnixnode  
@@ -62,6 +72,7 @@ nix-build --show-trace
 ```
 
 ### App
+
 ```sh
 # debugging building app
 docker run -v $(pwd):/build -it --entrypoint /bin/bash nixnode:latest  
@@ -81,8 +92,7 @@ docker run -v $(pwd):/build -it --entrypoint /bin/bash nixnodeapp:latest
 dive nixnodeapp:latest  
 ```
 
+## Resources
 
-
-# Resourcesa
 * docker-nixpkgs [here](https://github.com/nix-community/docker-nixpkgs)
 * Good example nix buildImage [here](https://github.com/nix-community/docker-nixpkgs/blob/master/images/devcontainer/default.nix)  

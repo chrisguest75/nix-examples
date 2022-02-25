@@ -17,7 +17,7 @@ pkgs.dockerTools.buildImage {
   };
   created = "now";
   contents = [
-      #pkgs.bash
+      pkgs.bash
       #pkgs.coreutils
       pkgs.nodejs
     ];  

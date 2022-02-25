@@ -1,8 +1,9 @@
 # README
+
 Building a Nix image inside a container
 
+## Build nix image builer
 
-## Build nix image builer 
 ```sh
 # build nix
 docker build -t nix .
@@ -12,6 +13,7 @@ docker run -v $(pwd):/build -it nix
 ```
 
 ## Load image into registry
+
 ```sh
 # load image into local registry
 docker load < docker-image
@@ -21,6 +23,7 @@ docker images
 ```
 
 ## Inside build container
+
 ```sh
 # jump into bash in container
 docker run -it bash:latest
@@ -33,20 +36,19 @@ curl -k https://www.google.com
 ```
 
 ## Vulnerability scanning
+
 ```sh
 # zero vulnerabilities for bash
 docker scan bash:latest 
 ```
 
 ## Troubleshooting
+
 ```sh
 # debugging
 docker run -v $(pwd):/build -it --entrypoint /bin/sh nix    
 nix-build --show-trace
 ```
 
-# Resources
+## Resources
 * Good example nix buildImage [here](https://github.com/nix-community/docker-nixpkgs/blob/master/images/devcontainer/default.nix)  
-
-
-

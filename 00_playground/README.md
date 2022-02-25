@@ -32,14 +32,15 @@ ls -l /root/.nix-profile/bin
 
 ```sh
 # print out some info 
-nix run nixpkgs.nix-info -c nix-info -m
+nix-env -iA nixpkgs.nix-info
+nix-info -m
 
  - system: `"x86_64-linux"`
- - host os: `Linux 5.4.0-62-generic, Alpine Linux, noversion`
+ - host os: `Linux 5.10.76-linuxkit`
  - multi-user?: `yes`
  - sandbox: `no`
- - version: `nix-env (Nix) 2.3.10`
- - channels(root): `"nixpkgs-21.03pre260194.ea3638a3fb2"`
+ - version: `nix-env (Nix) 2.6.1`
+ - channels(root): `""`
  - nixpkgs: `/nix/var/nix/profiles/per-user/root/channels/nixpkgs`
 ```
 
@@ -47,9 +48,10 @@ nix run nixpkgs.nix-info -c nix-info -m
 
 ```sh
 # run shell with bash
-nix run nixpkgs.bash
+nix-env -iA nixpkgs.bash
+bash
 # run shell with curl (inside bash shell)
-nix run nixpkgs.curl 
+nix-env -iA nixpkgs.curl 
 env
 curl -I https://www.google.com
 ```

@@ -4,11 +4,14 @@ TODO:
 
 1) [Pinning packages](https://nix.dev/tutorials/towards-reproducibility-pinning-nixpkgs.html)  
 1) Build a custom nix package
+    https://nixos.org/guides/nix-pills/index.html
 1) Understand the Nix language and API
 1) How do I view dependencies of packages? 
 1) Understand if vulnerability detectors are just not seeing the issues.  What is vulnix?
 1) These are some good examples - https://github.com/foggyubiquity/containizen  
 1) Nix flakes https://nixos.wiki/wiki/Flakes.  Replacing nix-channels.
+
+
 
 ## Install NIX
 

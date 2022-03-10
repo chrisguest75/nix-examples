@@ -20,7 +20,7 @@ docker run -v $(pwd):/build -it nix-builder
 
 # debugging
 docker run -v $(pwd):/build -it --entrypoint /bin/sh nix-builder
-nix-build ./ffmpeg.nix 
+nix-build ./ffmpeg-full.nix 
 ```
 
 ### Load image into registry

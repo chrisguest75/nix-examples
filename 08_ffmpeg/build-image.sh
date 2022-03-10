@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
-nix-build ./ffmpeg.nix 
+#nix-build ./ffmpeg-full.nix 
+nix-build ./ffmpeg-light.nix 
 if [[ $? -eq 0 ]]; then
     if [[ -f $(readlink ./result) ]]; then
         mv $(readlink ./result) ./ffmpeg-image

@@ -77,3 +77,9 @@ Steps [README.md](./07_build_nodejs_image/README.md)
 * [Minimal Docker Images](https://jpetazzo.github.io/2020/04/01/quest-minimal-docker-images-part-3/)  
 * [Nix-by-example](https://medium.com/@MrJamesFisher/nix-by-example-a0063a1a4c55)  
 * Nix Flakes: an Introduction [here](https://christine.website/blog/nix-flakes-1-2022-02-21)
+
+https://elatov.github.io/2022/01/building-a-nix-package/
+
+https://ianthehenry.com/posts/how-to-learn-nix/
+https://ianthehenry.com/posts/how-to-learn-nix/introduction/
+

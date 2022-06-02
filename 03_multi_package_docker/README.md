@@ -4,17 +4,18 @@ Demonstrates how to build a multi package docker image in Nix
 
 The pkg for pkg.dockerTools.
 
-NOTE:
+📋 NOTE:
 
 * curl does not work because of the bundle.crt
 * locate bundle.crt
+
 ## Examples of how to build Docker images
 
 [Examples](https://github.com/NixOS/nixpkgs/blob/master/pkgs/build-support/docker/examples.nix)  
 
 [Interface](https://github.com/NixOS/nixpkgs/blob/master/pkgs/build-support/docker/default.nix)
 
-## Local
+## 🏠 Local
 
 Follow if you have installed Nix locally
 
@@ -36,7 +37,7 @@ export SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt
 curl -I https://www.google.com
 ```
 
-## Playground
+## 🛝 Playground
 
 Follow if you are in the playground
 

@@ -2,7 +2,7 @@
 
 Playground based on building nix in Docker (doesn't require local Nix install)
 
-## Build and Run
+## 🏠 Build and Run
 
 ```sh
 # build nix
@@ -11,7 +11,7 @@ docker build -t nix-playground .
 docker run -v $(pwd)/..:/build -it --entrypoint /bin/sh nix-playground    
 ```
 
-## Configure
+## 📋 Configure
 
 ```sh
 # install man to view manpages
@@ -20,7 +20,7 @@ nix-env -iA nixpkgs.man
 man nix-env
 ```
 
-## Investigate
+## 🔍 Investigate
 
 ```sh
 # Installed packages
@@ -44,7 +44,7 @@ nix-info -m
  - nixpkgs: `/nix/var/nix/profiles/per-user/root/channels/nixpkgs`
 ```
 
-## Shells
+## 👩‍💻Shells
 
 ```sh
 # run shell with bash

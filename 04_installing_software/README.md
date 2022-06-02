@@ -2,12 +2,12 @@
 
 Demonstrates how to install software using nix package manager  
 
-NOTE: This can be run in the [playground](../00_playground/README.md)  
+ℹ️ NOTE: This can be run in the [playground](../00_playground/README.md)  
 
-[Cheatsheet](https://nixos.wiki/wiki/Cheatsheet)  
-[Package Revisions](https://lazamar.co.uk/nix-versions/?channel=nixpkgs-unstable&package=kubectl)  
+* [Cheatsheet](https://nixos.wiki/wiki/Cheatsheet)  
+* [Package Revisions](https://lazamar.co.uk/nix-versions/?channel=nixpkgs-unstable&package=kubectl)  
 
-## Discover
+## 🗺 Discover
 
 ```sh
 # search for jq
@@ -17,7 +17,7 @@ https://search.nixos.org/
 nix-env -qa
 ```
 
-## Install
+## 👨‍💻 Install
 
 Install the package  
 
@@ -25,18 +25,17 @@ Install the package
 nix-env -iA nixpkgs.jq
 ```
 
-## Execute
+## ⚡️ Execute
 
 ```sh
 # show the paths
 which jq
 > /home/${USER}/.nix-profile/bin/jq
-
 ```
 
-## Channels
+## 📝 Channels
 
-[Docs](https://nixos.wiki/wiki/Nix_channels)
+nix-channels [docs](https://nixos.wiki/wiki/Nix_channels)
 
 ```sh
 nix-channel --list

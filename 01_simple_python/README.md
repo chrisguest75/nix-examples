@@ -2,7 +2,7 @@
 
 Demonstrates how to build a simple python flask app in Nix  
 
-## Steps
+## 🏠 Steps
 
 Enter the `01_simple_python` folder.  
 

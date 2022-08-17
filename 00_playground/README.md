@@ -1,6 +1,6 @@
 # README
 
-Playground based on building nix in Docker (doesn't require local Nix install)
+Playground based on building `nix` in Docker (doesn't require local Nix install)
 
 ## 🏠 Build and Run
 
@@ -56,7 +56,28 @@ env
 curl -I https://www.google.com
 ```
 
+```sh
+# open a shell with hello packages
+nix-shell -p hello
+hello
+curl
+
+# pure does not inherit for the parent
+nix-shell --pure -p hello
+hello
+curl
+
+# to get the index link (get history in github, browse code and copy link to zip download)
+nix-shell --pure -p sox -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/8e36f0c4d18a55630954ff2206b1c05ec3fb8bb5.tar.gz
+sox --version
+```
+
 ## Follow steps in 01_simple_python
 
 You can use the shell in the container to run some of the other examples without installing Nix locally
 Steps [README.md](./01_simple_python/README.md)  
+
+## Resources
+
+* Ad hoc developer environments [here](https://nixos.org/guides/ad-hoc-developer-environments.html)  
+* Towards reproducibility: pinning Nixpkgs [here](https://nix.dev/tutorials/towards-reproducibility-pinning-nixpkgs.html)  

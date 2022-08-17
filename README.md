@@ -8,32 +8,31 @@ Demonstrate some examples of Nix in `docker`.
 
 📝 TODO:
 
-1) [Pinning packages](https://nix.dev/tutorials/towards-reproducibility-pinning-nixpkgs.html)  
 1) Build a custom nix package
     https://nixos.org/guides/nix-pills/index.html
 1) Understand the Nix language and API
-1) How do I view dependencies of packages? 
+1) How do I view dependencies of packages?  
 1) Understand if vulnerability detectors are just not seeing the issues.  What is vulnix?
 1) These are some good examples - https://github.com/foggyubiquity/containizen  
 1) Nix flakes https://nixos.wiki/wiki/Flakes.  Replacing nix-channels.
 
 ## 🏠 Install Nix
 
-* [Install-Nix](https://nixos.org/guides/install-nix.html) guide
+* [Install-Nix](https://nixos.org/download.html) guide
 * Install vscode extension
 
 ```sh
-    code --install-extension bbenoist.Nix
+code --install-extension bbenoist.Nix
 ```
 
 * Check a few things:
 
 ```sh
-    # check the daemon is running
-    systemctl status nix-daemon
+# check the daemon is running
+systemctl status nix-daemon
 
-    # 
-    nix-env --help
+# 
+nix-env --help
 ```
 
 The [NixPkgs](https://github.com/nixos/nixpkgs) index.  

@@ -44,6 +44,9 @@ nix-env --uninstall jql
 # show the paths
 which jq
 > /home/${USER}/.nix-profile/bin/jq
+
+# show dependencies (you'll see dependencies all under /nix/store)
+ldd $(which jq)
 ```
 
 ```sh

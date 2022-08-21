@@ -25,14 +25,18 @@ Demonstrate some examples of Nix in `docker`.
 code --install-extension bbenoist.Nix
 ```
 
-* Check a few things:
+Check the installation:  
 
 ```sh
 # check the daemon is running
 systemctl status nix-daemon
 
-# 
+systemctl start nix-daemon      
+
+# show help
 nix-env --help
+# a quick test of nix-shell
+nix-shell -p nix-info --run "nix-info -m"
 ```
 
 The [NixPkgs](https://github.com/nixos/nixpkgs) index.  

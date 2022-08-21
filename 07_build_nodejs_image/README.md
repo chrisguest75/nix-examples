@@ -1,6 +1,6 @@
 # README
 
-Building a Nix nodejs image
+Building a Nix nodejs image  
 
 ## Overview
 

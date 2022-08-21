@@ -1,6 +1,6 @@
 # README
 
-Demonstrate creating an `ffmpeg` image with Nix.
+Demonstrate creating an `ffmpeg` image with Nix.  
 
 📝 TODO:
 
@@ -67,4 +67,3 @@ docker run -v $(pwd):/output -it nix-ffmpeg ffmpeg -f lavfi -i testsrc=size=1920
 * NapoleonWils0n/cerberus repo [here](https://github.com/NapoleonWils0n/cerberus/blob/master/nixpkgs/nixpkgs-package-manager.org)
 * nixpkgs/pkgs/development/libraries/ffmpeg-full/default.nix [here](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/libraries/ffmpeg-full/default.nix)
 * nixpkgs/pkgs/development/libraries/ffmpeg [here](https://github.com/NixOS/nixpkgs/tree/master/pkgs/development/libraries/ffmpeg)
-

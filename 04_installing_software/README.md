@@ -14,7 +14,9 @@ Demonstrates how to install software using nix package manager
 https://search.nixos.org/
 
 # query all the packages
-nix-env -qa
+nix-env -qa 
+# partial matches - beginning with jq
+nix-env -qa 'jq.*'        
 ```
 
 ## 👨‍💻 Install
@@ -22,7 +24,18 @@ nix-env -qa
 Install the package  
 
 ```sh
+# nixpkgs is the channel
 nix-env -iA nixpkgs.jq
+
+# how to install stable vs unstable
+nix-env -iA nixpkgs.jql
+
+
+# list installed packages
+nix-env --query --installed
+
+# removing a package
+nix-env --uninstall jql          
 ```
 
 ## ⚡️ Execute
@@ -31,6 +44,14 @@ nix-env -iA nixpkgs.jq
 # show the paths
 which jq
 > /home/${USER}/.nix-profile/bin/jq
+
+# show dependencies (you'll see dependencies all under /nix/store)
+ldd $(which jq)
+```
+
+```sh
+# pure shell with run command
+nix-shell --pure -p jq --run "jq --version"   
 ```
 
 ## 📝 Channels
@@ -40,3 +61,7 @@ nix-channels [docs](https://nixos.wiki/wiki/Nix_channels)
 ```sh
 nix-channel --list
 ```
+
+## Resources
+
+* nix-channels [here](https://nixos.wiki/wiki/Nix_channels)  

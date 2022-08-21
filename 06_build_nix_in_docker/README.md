@@ -1,6 +1,6 @@
 # README
 
-Building a Nix image inside a container
+Building a Nix image inside a container  
 
 ## 🏠 Build nix image builer
 

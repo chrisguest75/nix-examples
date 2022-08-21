@@ -18,3 +18,5 @@ nix-shell default.nix
 # run an application
 python3 myapp.py
 ```
+
+## Resources

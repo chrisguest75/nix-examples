@@ -8,13 +8,12 @@ Demonstrate some examples of Nix in `docker`.
 
 📝 TODO:
 
-1) Build a custom nix package
-    https://nixos.org/guides/nix-pills/index.html
-1) Understand the Nix language and API
-1) How do I view dependencies of packages?  
-1) Understand if vulnerability detectors are just not seeing the issues.  What is vulnix?
-1) These are some good examples - https://github.com/foggyubiquity/containizen  
-1) Nix flakes https://nixos.wiki/wiki/Flakes.  Replacing nix-channels.
+* Build a custom nix package https://nixos.org/guides/nix-pills/index.html
+* Understand the Nix language and API
+* How do I view dependencies of packages?  
+* Understand if vulnerability detectors are just not seeing the issues.  What is vulnix?
+* These are some good examples - https://github.com/foggyubiquity/containizen  
+* Nix flakes https://nixos.wiki/wiki/Flakes.  Replacing nix-channels.
 
 ## 🏠 Install Nix
 
@@ -37,6 +36,19 @@ systemctl start nix-daemon
 nix-env --help
 # a quick test of nix-shell
 nix-shell -p nix-info --run "nix-info -m"
+```
+
+## Index and Locate files
+
+```sh
+nix-env -iA nixpkgs.nix-index
+nix-shell -p nix-index
+
+# NOTE: THis seems to fail inside a container.  
+nix-index  
+
+# Try to find ldd inside packages
+nix-locate ldd
 ```
 
 The [NixPkgs](https://github.com/nixos/nixpkgs) index.  
@@ -81,6 +93,11 @@ Steps [README.md](./07_build_nodejs_image/README.md)
 Demonstrate creating an `ffmpeg` image with Nix.  
 Steps [README.md](./08_ffmpeg/README.md)  
 
+## 09 - Build `distroless` images
+
+Demonstrate using `nix` package to install into a distroless/scratch image.  
+Steps [README.md](./09_distroless/README.md)  
+
 ## 👀 Resources
 
 * [Minimal Docker Images](https://jpetazzo.github.io/2020/04/01/quest-minimal-docker-images-part-3/)  
@@ -89,3 +106,4 @@ Steps [README.md](./08_ffmpeg/README.md)
 * Building a Nix Package [here](https://elatov.github.io/2022/01/building-a-nix-package/)
 * How to Learn Nix [here](https://ianthehenry.com/posts/how-to-learn-nix/)
 * How to Learn Nix, Part 1: What's all this about? [here](https://ianthehenry.com/posts/how-to-learn-nix/introduction/)
+* awesome-nix [here](https://nix-community.github.io/awesome-nix/)

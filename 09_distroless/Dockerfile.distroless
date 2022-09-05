@@ -1,0 +1,34 @@
+FROM nixos/nix:latest AS BUILDER
+
+WORKDIR /scratch
+COPY sox.nix sox.nix
+RUN nix-build ./sox.nix
+
+#RUN find /nix/store -name "libsox.so.3" 
+RUN find /nix/store -name "ldd" 
+
+RUN /nix/store/h0cnbmfcn93xm5dg2x27ixhag1cwndga-glibc-2.34-210-bin/bin/ldd "./result/bin/sox"
+
+CMD ["./result/bin/sox", "--version"]
+
+
+# NOTE: Use this target to work out what to copy into scratch or distroless container.
+FROM ubuntu:22.04 AS LDD
+
+COPY --from=BUILDER /scratch/result/bin/ /bin/
+RUN ldd /bin/sox
+
+
+#FROM ubuntu:22.04 AS PRODUCTION
+#FROM gcr.io/distroless/base AS PRODUCTION
+FROM gcr.io/distroless/nodejs:16 AS PRODUCTION
+
+COPY --from=BUILDER /scratch/result/bin/ /bin/
+
+#COPY --from=BUILDER /nix /nix
+COPY --from=BUILDER /nix/store/scd5n7xsn0hh0lvhhnycr9gx0h8xfzsl-glibc-2.34-210 /nix/store/scd5n7xsn0hh0lvhhnycr9gx0h8xfzsl-glibc-2.34-210
+COPY --from=BUILDER /nix/store/d0nndqq9hl05h7dkpqh4zfjv4xcj1bs9-sox-unstable-2021-05-09 /nix/store/d0nndqq9hl05h7dkpqh4zfjv4xcj1bs9-sox-unstable-2021-05-09 
+
+
+
+CMD ["/bin/sox", "--version"]

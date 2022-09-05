@@ -4,6 +4,11 @@ WORKDIR /scratch
 COPY jq.nix jq.nix
 RUN nix-build ./jq.nix
 
+#RUN find /nix/store -name "libsox.so.3" 
+RUN find /nix/store -name "ldd" 
+
+RUN /nix/store/h0cnbmfcn93xm5dg2x27ixhag1cwndga-glibc-2.34-210-bin/bin/ldd "./result/bin/jq"
+
 CMD ["./result/bin/jq", "--version"]
 
 

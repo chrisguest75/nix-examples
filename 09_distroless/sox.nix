@@ -1,9 +1,9 @@
 with import <nixpkgs> {};
 
 buildEnv {
-  name = "buildjq";
+  name = "buildsox";
   paths = [ 
-    jq 
+    sox 
     gawk 
   ];
 }

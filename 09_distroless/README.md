@@ -2,6 +2,10 @@
 
 Demonstrate using `nix` package to install into a distroless/scratch image.  
 
+NOTES:
+
+* This produces images with applications containing only the binaries required to run them.  
+
 TODO:  
 
 * creates too many layers for dive.
@@ -43,7 +47,6 @@ docker run --rm -it nix-scratch-final
 
 # run to prove sox works
 docker run --rm -it --entrypoint /bin/sox nix-distroless-final --version 
-
 ```
 
 ## Troubleshooting
@@ -58,11 +61,10 @@ dive nix-distroless
 
 ## Resources
 
-https://github.com/GoogleContainerTools/distroless/issues/13
-https://github.com/GoogleContainerTools/distroless/tree/main/base
-
-https://releases.nixos.org/nix-dev/2016-August/021431.html
-https://fzakaria.com/2020/11/17/on-demand-linked-libraries-for-nix.html
+* Add a tips/tricks doc to the README with info on how to do common Dockerfile tasks [here](https://github.com/GoogleContainerTools/distroless/issues/13)
+* Documentation for gcr.io/distroless/base and gcr.io/distroless/static [here](https://github.com/GoogleContainerTools/distroless/tree/main/base)
+* [Nix-dev] Generating nixos-compatible binaries? And bootstrapped packages. [here](https://releases.nixos.org/nix-dev/2016-August/021431.html)
+* On-demand linked libraries for Nix [here](https://fzakaria.com/2020/11/18/on-demand-linked-libraries-for-nix.html)
 
 
 https://github.com/thiagokokada/nix-alien

@@ -65,4 +65,4 @@ nix-channel --list
 ## Resources
 
 * nix-channels [here](https://nixos.wiki/wiki/Nix_channels)  
-* https://search.nixos.org/
+* nix package search [here](https://search.nixos.org/)

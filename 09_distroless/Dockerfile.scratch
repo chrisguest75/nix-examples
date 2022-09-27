@@ -15,6 +15,9 @@ COPY <<EOF /scratch/exportldd.sh
 /nix/store/h0cnbmfcn93xm5dg2x27ixhag1cwndga-glibc-2.34-210-bin/bin/ldd "./result/bin/jq" >  /scratch/jq_libs.txt
 cat /scratch/jq_libs.txt | /nix/store/w3p77mkdy3pigg12iyha8y9dqakhjsxn-gawk-5.1.1/bin/awk 'NF == 4 { {print \$3} }' > /scratch/jq_libs_extracted.txt    
 cat /scratch/jq_libs_extracted.txt | /nix/store/w3p77mkdy3pigg12iyha8y9dqakhjsxn-gawk-5.1.1/bin/awk -F/ -vOFS=/ '{ print \$1,\$2,\$3,\$4; }' | sort -u > /scratch/jq_libs_paths.txt
+tar -cvf /scratch/libraries.tar -T /scratch/jq_libs_paths.txt
+mkdir /output
+tar xf /scratch/libraries.tar --directory=/output
 EOF
 RUN chmod +x /scratch/exportldd.sh
 RUN /scratch/exportldd.sh
@@ -32,11 +35,12 @@ CMD ["./result/bin/jq", "--version"]
 #FROM gcr.io/distroless/base AS PRODUCTION
 FROM scratch AS PRODUCTION
 
-COPY --from=BUILDER /scratch/result/bin/ /bin/
+COPY --from=BUILDER /scratch/result/bin/jq /bin/jq
+COPY --from=BUILDER /output /
 
-#COPY --from=BUILDER /nix /nix
-COPY --from=BUILDER /nix/store/hnnp7jar4zmk84bp7ary246npzfbdsxv-jq-1.6-lib /nix/store/hnnp7jar4zmk84bp7ary246npzfbdsxv-jq-1.6-lib
-COPY --from=BUILDER /nix/store/scd5n7xsn0hh0lvhhnycr9gx0h8xfzsl-glibc-2.34-210 /nix/store/scd5n7xsn0hh0lvhhnycr9gx0h8xfzsl-glibc-2.34-210
-COPY --from=BUILDER /nix/store/fyzvck2f9bp6pqq58b36j0zbp5rk0vb2-onig-6.9.7.1 /nix/store/fyzvck2f9bp6pqq58b36j0zbp5rk0vb2-onig-6.9.7.1
+# #COPY --from=BUILDER /nix /nix
+# COPY --from=BUILDER /nix/store/hnnp7jar4zmk84bp7ary246npzfbdsxv-jq-1.6-lib /nix/store/hnnp7jar4zmk84bp7ary246npzfbdsxv-jq-1.6-lib
+# COPY --from=BUILDER /nix/store/scd5n7xsn0hh0lvhhnycr9gx0h8xfzsl-glibc-2.34-210 /nix/store/scd5n7xsn0hh0lvhhnycr9gx0h8xfzsl-glibc-2.34-210
+# COPY --from=BUILDER /nix/store/fyzvck2f9bp6pqq58b36j0zbp5rk0vb2-onig-6.9.7.1 /nix/store/fyzvck2f9bp6pqq58b36j0zbp5rk0vb2-onig-6.9.7.1
 
 CMD ["/bin/jq", "--version"]

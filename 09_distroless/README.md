@@ -5,74 +5,74 @@ Demonstrate using `nix` package to install into a distroless/scratch image.
 NOTES:
 
 * This produces images with applications containing only the binaries required to run them.  
+* Would be nice if `ADD` supported --from syntax as I wouldn't need to copy the files decompressed.  
+* Would also be nice if the `COPY` command supported an arbitrary list of folders to copy.  
 
 TODO:  
 
-* creates too many layers for dive.
-* squash it
-* --ouput doesn't seem to work on macosx
-* nixos image is 500MB
+* --output doesn't seem to work on macosx
+* complete the generic builder, improve the ffmpeg one.  
+* slim down the ffmpeg builder and remove options not required.  
 
 ## Build
 
-Build images
+Build images that contain the all binaries required for the chosen tool.  
 
-### Scratch
+### JQ
 
-```sh
-# build the packages 
-docker build --no-cache --progress=plain -f Dockerfile.scratch --target BUILDER -t nix-scratch-builder .    
+```bash
+export BASEIMAGE=scratch
+export BASEIMAGE=gcr.io/distroless/nodejs:16 
+# jq
+docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=jq.nix --build-arg=PROGRAM_FILE=jq --progress=plain -f Dockerfile.jq --target PRODUCTION -t nix-jq .
 
-# show the dependencies that need to be copied 
-#docker build --no-cache --progress=plain -f Dockerfile.scratch --target LDD -t nix-scratch .    
-docker run --rm -it --entrypoint /bin/sh --name nix-scratch-builder nix-scratch-builder  
-docker create --name nix-scratch-builder nix-scratch-builder
-mkdir -p ./out
-docker cp nix-scratch-builder:/scratch/jq_libs_paths.txt ./out
-docker stop nix-scratch-builder; docker rm nix-scratch-builder  
+docker run --rm -it nix-jq --version
 
-# build final scratch image
-docker build --no-cache --progress=plain -f Dockerfile.scratch --target PRODUCTION -t nix-scratch-final .    
+dive nix-jq
 ```
 
-### Distroless
+### SOX
 
-```sh
-# build the packages 
-docker build --no-cache --progress=plain -f Dockerfile.distroless --target BUILDER -t nix-distroless-builder .    
-# show the dependencies that need to be copied 
-#docker build --no-cache --progress=plain -f Dockerfile.distroless --target LDD -t nix-distroless .    
-docker run --rm -it --entrypoint /bin/sh --name nix-distroless-builder nix-distroless-builder  
-docker create --name nix-distroless-builder nix-distroless-builder
-mkdir -p ./out
-docker cp nix-distroless-builder:/scratch/sox_libs_paths.txt ./out
-docker stop nix-distroless-builder; docker rm nix-distroless-builder  
+```bash
+export BASEIMAGE=scratch
+export BASEIMAGE=gcr.io/distroless/nodejs:16 
+# sox
+docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=sox.nix --build-arg=PROGRAM_FILE=sox --progress=plain -f Dockerfile.sox --target PRODUCTION -t nix-sox .
 
-# build final scratch image
-docker build --no-cache --progress=plain -f Dockerfile.distroless --target PRODUCTION -t nix-distroless-final .
+docker run --rm -it nix-sox --version
 
-# create lib copy directives
-cat ./out/sox_libs_paths.txt | awk 'NF == 1 { {print "COPY --from=BUILDER " $1 " " $1} }'
+dive nix-sox
 ```
 
-## Run
+### FFMPEG
 
-```sh
-# run to prove jq works
-docker run --rm -it nix-scratch-final
+```bash
+export BASEIMAGE=scratch
+export BASEIMAGE=gcr.io/distroless/nodejs:16 
+# ffmpeg
+docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=ffmpeg-full.nix --build-arg=PROGRAM_FILE=ffmpeg --progress=plain -f Dockerfile.ffmpeg --target PRODUCTION -t nix-ffmpeg .
 
-# run to prove sox works
-docker run --rm -it --entrypoint /bin/sox nix-distroless-final --version 
+docker run --rm -it nix-ffmpeg --version       
+
+dive nix-ffmpeg
 ```
 
 ## Troubleshooting
 
+If you need to troubleshoot the builds.  
+
 ```sh
+# build builder target
+export BASEIMAGE=scratch
+export BASEIMAGE=gcr.io/distroless/nodejs:16 
+
+docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=jq.nix --build-arg=PROGRAM_FILE=jq --progress=plain -f Dockerfile.jq --target BUILDER -t nix-jq .
+
 # exec into container
-docker run --rm -it --entrypoint /bin/sh nix-distroless                                  
+docker run --rm -it --entrypoint /bin/sh nix-jq
 
 # show sizes
-dive nix-distroless
+dive nix-jq
 ```
 
 ## Resources

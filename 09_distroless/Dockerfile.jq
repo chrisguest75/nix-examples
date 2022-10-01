@@ -2,8 +2,8 @@
 ARG baseimage="scratch"
 FROM nixos/nix:latest AS BUILDER
 
-ARG NIX_FILE=./ffmpeg-full.nix 
-ARG PROGRAM_FILE=ffmpeg 
+ARG NIX_FILE=./jq.nix 
+ARG PROGRAM_FILE=jq 
 
 WORKDIR /scratch
 COPY $NIX_FILE .
@@ -32,5 +32,5 @@ FROM $baseimage AS PRODUCTION
 COPY --from=BUILDER /output/bin/$PROGRAM_FILE /usr/bin/$PROGRAM_FILE
 COPY --from=BUILDER /output/libs /
 
-ENTRYPOINT [ "/usr/bin/ffmpeg" ]
-CMD ["/usr/bin/ffmpeg", "--version"]
+ENTRYPOINT [ "/usr/bin/jq" ]
+CMD ["/usr/bin/jq", "--version"]

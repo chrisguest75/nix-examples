@@ -18,57 +18,43 @@ TODO:
 
 Build images that contain the all binaries required for the chosen tool.  
 
-### Scratch (jq)
+### JQ
 
-```sh
-# build the packages 
-docker build --no-cache --progress=plain -f Dockerfile.scratch --target BUILDER -t nix-scratch-builder .    
+```bash
+export BASEIMAGE=scratch
+export BASEIMAGE=gcr.io/distroless/nodejs:16 
+# jq
+docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=jq.nix --build-arg=PROGRAM_FILE=jq --progress=plain -f Dockerfile.jq --target PRODUCTION -t nix-jq .
 
-# show the dependencies that need to be copied 
-#docker build --no-cache --progress=plain -f Dockerfile.scratch --target LDD -t nix-scratch .    
-docker run --rm -it --entrypoint /bin/sh --name nix-scratch-builder nix-scratch-builder  
-docker create --name nix-scratch-builder nix-scratch-builder
-mkdir -p ./out
-docker cp nix-scratch-builder:/scratch/jq_libs_paths.txt ./out
-docker stop nix-scratch-builder; docker rm nix-scratch-builder  
+docker run --rm -it nix-jq --version
 
-# build final scratch image
-docker build --no-cache --progress=plain -f Dockerfile.scratch --target PRODUCTION -t nix-scratch-final .    
+dive nix-jq
 ```
 
-### Distroless (sox)
+### SOX
 
-```sh
-# build the packages 
-docker build --no-cache --progress=plain -f Dockerfile.distroless --target BUILDER -t nix-distroless-builder .    
-# show the dependencies that need to be copied 
-#docker build --no-cache --progress=plain -f Dockerfile.distroless --target LDD -t nix-distroless .    
-docker run --rm -it --entrypoint /bin/sh --name nix-distroless-builder nix-distroless-builder  
-docker create --name nix-distroless-builder nix-distroless-builder
-mkdir -p ./out
-docker cp nix-distroless-builder:/scratch/sox_libs_paths.txt ./out
-docker stop nix-distroless-builder; docker rm nix-distroless-builder  
+```bash
+export BASEIMAGE=scratch
+export BASEIMAGE=gcr.io/distroless/nodejs:16 
+# sox
+docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=sox.nix --build-arg=PROGRAM_FILE=sox --progress=plain -f Dockerfile.sox --target PRODUCTION -t nix-sox .
 
-# build final scratch image
-docker build --no-cache --progress=plain -f Dockerfile.distroless --target PRODUCTION -t nix-distroless-final .
+docker run --rm -it nix-sox --version
 
-# create lib copy directives
-cat ./out/sox_libs_paths.txt | awk 'NF == 1 { {print "COPY --from=BUILDER " $1 " " $1} }'
+dive nix-sox
 ```
 
-## Run
+### FFMPEG
 
-Test the build images.  
+```bash
+export BASEIMAGE=scratch
+export BASEIMAGE=gcr.io/distroless/nodejs:16 
+# ffmpeg
+docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=ffmpeg-full.nix --build-arg=PROGRAM_FILE=ffmpeg --progress=plain -f Dockerfile.ffmpeg --target PRODUCTION -t nix-ffmpeg .
 
-```sh
-# run to prove jq works
-docker run --rm -it nix-scratch-final
+docker run --rm -it nix-ffmpeg --version       
 
-# run and then paste {"hello":"message"}
-docker run --rm -it nix-scratch-final jq . 
-
-# run to prove sox works
-docker run --rm -it --entrypoint /bin/sox nix-distroless-final --version 
+dive nix-ffmpeg
 ```
 
 ## Troubleshooting
@@ -76,26 +62,18 @@ docker run --rm -it --entrypoint /bin/sox nix-distroless-final --version
 If you need to troubleshoot the builds.  
 
 ```sh
+# build builder target
+export BASEIMAGE=scratch
+export BASEIMAGE=gcr.io/distroless/nodejs:16 
+
+docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=jq.nix --build-arg=PROGRAM_FILE=jq --progress=plain -f Dockerfile.jq --target BUILDER -t nix-jq .
+
 # exec into container
-docker run --rm -it --entrypoint /bin/sh nix-distroless                                  
+docker run --rm -it --entrypoint /bin/sh nix-jq
 
 # show sizes
-dive nix-distroless
+dive nix-jq
 ```
-
-## Bonus ffmpeg
-
-```sh
-# build the packages 
-docker build --no-cache --progress=plain -f Dockerfile.ffmpeg --target BUILDER -t nix-ffmpeg-builder .    
-# show the dependencies that need to be copied 
-#docker build --no-cache --progress=plain -f Dockerfile.distroless --target LDD -t nix-distroless .    
-docker run --rm -it --entrypoint /bin/sh --name nix-ffmpeg-builder nix-ffmpeg-builder  
-
-# build final scratch image
-docker build --no-cache --progress=plain -f Dockerfile.ffmpeg --target PRODUCTION -t nix-ffmpeg-final .
-```
-
 
 ## Resources
 

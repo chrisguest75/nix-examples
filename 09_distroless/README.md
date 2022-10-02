@@ -11,7 +11,6 @@ NOTES:
 TODO:  
 
 * --output doesn't seem to work on macosx
-* complete the generic builder, improve the ffmpeg one.  
 * slim down the ffmpeg builder and remove options not required.  
 
 ## Bake

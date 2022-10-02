@@ -14,6 +14,20 @@ TODO:
 * complete the generic builder, improve the ffmpeg one.  
 * slim down the ffmpeg builder and remove options not required.  
 
+## Bake
+
+```bash
+# use bake to build all the images
+docker buildx bake --metadata-file ./bake-metadata.json  
+docker buildx bake --metadata-file ./bake-metadata.json --no-cache 
+
+while IFS=, read -r imagesha
+do
+    echo "IMAGE:$imagesha"
+    docker run --rm -t "$imagesha" --version
+done < <(jq -r '. | keys[] as $key | .[$key]."containerimage.digest"' ./bake-metadata.json)
+```
+
 ## Build
 
 Build images that contain the all binaries required for the chosen tool.  

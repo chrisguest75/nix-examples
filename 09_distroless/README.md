@@ -20,6 +20,7 @@ TODO:
 docker buildx bake --metadata-file ./bake-metadata.json  
 docker buildx bake --metadata-file ./bake-metadata.json --no-cache 
 
+# iterate over built images and test --versions
 while IFS=, read -r imagesha
 do
     echo "IMAGE:$imagesha"
@@ -70,6 +71,20 @@ docker run --rm -it nix-ffmpeg --version
 dive nix-ffmpeg
 ```
 
+### Multitool (FFMPEG & SOX)
+
+```bash
+export BASEIMAGE=scratch
+export BASEIMAGE=gcr.io/distroless/nodejs:16 
+# ffmpeg
+docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=multitool.nix --progress=plain -f Dockerfile.multitool --target PRODUCTION -t nix-multitool .
+
+docker run --rm -it nix-multitool --version       
+docker run --rm -it --entrypoint /usr/bin/ffmpeg nix-multitool --version
+
+dive nix-multitool
+```
+
 ## Troubleshooting
 
 If you need to troubleshoot the builds.  
@@ -80,9 +95,11 @@ export BASEIMAGE=scratch
 export BASEIMAGE=gcr.io/distroless/nodejs:16 
 
 docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=jq.nix --build-arg=PROGRAM_FILE=jq --progress=plain -f Dockerfile.jq --target BUILDER -t nix-jq .
+docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=multitool.nix --progress=plain -f Dockerfile.multitool --target BUILDER -t nix-multitool .
 
 # exec into container
 docker run --rm -it --entrypoint /bin/sh nix-jq
+docker run --rm -it --entrypoint /bin/sh nix-multitool 
 
 # show sizes
 dive nix-jq

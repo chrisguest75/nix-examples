@@ -93,6 +93,38 @@ target "ffmpeg-image-scratch" {
   tags = ["nix-ffmpeg-scratch:${TAG}"]
 }
 
+#***********************************************
+# multitool images
+#***********************************************
+
+target "multitool-image" {
+  args = {"NIX_FILE":"multitool.nix"}
+  context = "."
+  dockerfile = "Dockerfile.multitool"
+}
+
+target "multitool-image-distroless" {
+  inherits = ["multitool-image"]
+  args = {"baseimage":"${DISTROLESS}"}
+  labels = {
+    "org.opencontainers.image.title"= "nix-multitool-distroless:${TAG}"
+  }
+  tags = ["nix-multitool-distroless:${TAG}"]
+}
+
+target "multitool-image-scratch" {
+  inherits = ["multitool-image"]
+  args = {"baseimage":"${SCRATCH}"}
+  labels = {
+    "org.opencontainers.image.title"= "nix-multitool-scratch:${TAG}"
+  }
+  tags = ["nix-multitool-scratch:${TAG}"]
+}
+
+#***********************************************
+# all images
+#***********************************************
+
 group "default" {
   targets = [
     "jq-image-distroless", 
@@ -100,6 +132,8 @@ group "default" {
     "sox-image-distroless", 
     "sox-image-scratch",
     "ffmpeg-image-distroless", 
-    "ffmpeg-image-scratch"
+    "ffmpeg-image-scratch",
+    "multitool-image-distroless", 
+    "multitool-image-scratch"
     ]
 }

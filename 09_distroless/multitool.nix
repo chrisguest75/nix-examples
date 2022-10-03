@@ -1,9 +1,10 @@
 with import <nixpkgs> {};
 
 buildEnv {
-  name = "buildffmpeg";
+  name = "multitool";
   paths = [ 
     ffmpeg-full 
+    sox 
     gawk 
   ];
 }

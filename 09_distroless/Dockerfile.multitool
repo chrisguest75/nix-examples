@@ -34,7 +34,7 @@ CMD ["./output/bin/$PROGRAM_FILE", "--version"]
 
 FROM $baseimage AS PRODUCTION
 
-COPY --from=BUILDER /output/bin/$PROGRAM_FILE /usr/bin/$PROGRAM_FILE
+COPY --from=BUILDER /output/bin/ /usr/bin/
 COPY --from=BUILDER /output/libs /
 
 ENTRYPOINT [ "/usr/bin/sox" ]

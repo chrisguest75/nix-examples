@@ -12,6 +12,7 @@ TODO:
 
 * --output doesn't seem to work on macosx
 * slim down the ffmpeg builder and remove options not required.  
+* Remove header files and manpages.
 
 ## Bake
 

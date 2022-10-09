@@ -18,8 +18,11 @@ docker run -v $(pwd)/..:/build -it --entrypoint /bin/sh nix-playground
 ```bash
 nix --help
 
+nix flake new hello --extra-experimental-features nix-command --extra-experimental-features flakes
 
-nix --extra-experimental-features nix-command flake 
+nix build --extra-experimental-features nix-command --extra-experimental-features flakes
+
+nix flake --extra-experimental-features nix-command --extra-experimental-features flakes
 ```
 
 ## Resources

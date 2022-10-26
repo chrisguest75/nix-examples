@@ -34,3 +34,6 @@ https://discourse.nixos.org/t/error-experimental-nix-feature-nix-command-is-disa
 https://github.com/the-nix-way/nix-flake-dev-environments/tree/main
 
 https://xeiaso.net/blog/nix-flakes-1-2022-02-21
+
+https://blog.kubukoz.com/flakes-first-steps/
+

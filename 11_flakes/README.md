@@ -10,12 +10,14 @@ TODO:
 
 ```sh
 # build nix
-docker build -t nix-playground .
+docker build -t nix-flakes .
 # debugging and host repo in build folder
-docker run -v $(pwd)/..:/build -it --entrypoint /bin/sh nix-playground    
+docker run -v $(pwd)/..:/build -it --entrypoint /bin/sh nix-flakes    
 ``` 
 
 ```bash
+cd 11_flakes
+
 nix --help
 
 nix flake new hello --extra-experimental-features nix-command --extra-experimental-features flakes
@@ -37,3 +39,7 @@ https://xeiaso.net/blog/nix-flakes-1-2022-02-21
 
 https://blog.kubukoz.com/flakes-first-steps/
 
+Nix flakes 
+https://tonyfinn.com/blog/nix-from-first-principles-flake-edition/
+Nix
+Nix Flakes - https://blog.kubukoz.com/flakes-first-steps/

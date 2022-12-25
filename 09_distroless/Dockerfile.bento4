@@ -22,9 +22,7 @@ do
     cat /scratch/libs_extracted.txt | \${AWK_PROGRAM} -F/ -vOFS=/ '{ print \$1,\$2,\$3,\$4; }' | sort -u >> /scratch/libs_paths.txt
     cp "./result/bin/\$PROGRAM_FILE" /output/bin
 done << PROGRAMS
-sox
-ffmpeg
-ffprobe
+mp42hls
 PROGRAMS
 
 tar -cvf /scratch/libraries.tar -T /scratch/libs_paths.txt
@@ -40,5 +38,5 @@ FROM $baseimage AS PRODUCTION
 COPY --from=BUILDER /output/bin/ /usr/bin/
 COPY --from=BUILDER /output/libs /
 
-ENTRYPOINT [ "/usr/bin/sox" ]
-CMD ["/usr/bin/sox", "--version"]
+ENTRYPOINT [ "/usr/bin/mp42hls" ]
+CMD ["/usr/bin/mp42hls", "--version"]

@@ -10,6 +10,7 @@ NOTES:
 
 TODO:  
 
+* Create a more comprehensive script that copies across listed bins and dependencies.  
 * --output doesn't seem to work on macosx
 * slim down the ffmpeg builder and remove options not required.  
 * Remove header files and manpages.
@@ -44,6 +45,19 @@ docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=jq.nix --buil
 docker run --rm -it nix-jq --version
 
 dive nix-jq
+```
+
+### Bento4
+
+```bash
+export BASEIMAGE=scratch
+export BASEIMAGE=gcr.io/distroless/nodejs:16 
+# bento4
+docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=bento4.nix --build-arg=PROGRAM_FILE=mp42hls --progress=plain -f Dockerfile.bento4 --target PRODUCTION -t nix-bento4 .
+
+docker run --rm -it nix-bento4 --version
+
+dive nix-bento4
 ```
 
 ### SOX
@@ -98,9 +112,16 @@ export BASEIMAGE=gcr.io/distroless/nodejs:16
 docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=jq.nix --build-arg=PROGRAM_FILE=jq --progress=plain -f Dockerfile.jq --target BUILDER -t nix-jq .
 docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=multitool.nix --progress=plain -f Dockerfile.multitool --target BUILDER -t nix-multitool .
 
+docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=bento4.nix --build-arg=PROGRAM_FILE=mp42hls --progress=plain -f Dockerfile.bento4 --target BUILDER -t nix-bento4 .
+
+docker run --rm -it nix-bento4 --version
+
+
+
 # exec into container
 docker run --rm -it --entrypoint /bin/sh nix-jq
 docker run --rm -it --entrypoint /bin/sh nix-multitool 
+docker run --rm -it --entrypoint /bin/sh nix-bento4
 
 # show sizes
 dive nix-jq

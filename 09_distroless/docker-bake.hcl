@@ -10,6 +10,34 @@ variable "SCRATCH" {
 }
 
 #***********************************************
+# bento4 images
+#***********************************************
+
+target "bento4-image" {
+  args = {"NIX_FILE":"bento4.nix", "PROGRAM_FILE":"mp42hls"}
+  context = "."
+  dockerfile = "Dockerfile.bento4"
+}
+
+target "bento4-image-distroless" {
+  inherits = ["bento4-image"]
+  args = {"baseimage":"${DISTROLESS}"}
+  labels = {
+    "org.opencontainers.image.title"= "nix-bento4-distroless:${TAG}"
+  }
+  tags = ["nix-bento4-distroless:${TAG}"]
+}
+
+target "bento4-image-scratch" {
+  inherits = ["bento4-image"]
+  args = {"baseimage":"${SCRATCH}"}
+  labels = {
+    "org.opencontainers.image.title"= "nix-bento4-scratch:${TAG}"
+  }
+  tags = ["nix-bento4-scratch:${TAG}"]
+}
+
+#***********************************************
 # JQ images
 #***********************************************
 
@@ -127,6 +155,8 @@ target "multitool-image-scratch" {
 
 group "default" {
   targets = [
+    "bento4-image-distroless", 
+    "bento4-image-scratch",
     "jq-image-distroless", 
     "jq-image-scratch",
     "sox-image-distroless", 

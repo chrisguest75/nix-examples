@@ -1,11 +1,9 @@
 with import <nixpkgs> {};
 
 buildEnv {
-  name = "multitool";
+  name = "buildbento4";
   paths = [ 
-    ffmpeg_5
-    sox 
+    bento4 
     gawk 
   ];
 }
-

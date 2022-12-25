@@ -1,0 +1,5 @@
+test_helper
+TestReport-*.xml
+data/out/*
+!data/out/.gitkeep
+data/in/concat.txt

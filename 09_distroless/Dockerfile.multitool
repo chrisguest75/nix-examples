@@ -30,7 +30,7 @@ PROGRAMS
 tar -cvf /scratch/libraries.tar -T /scratch/libs_paths.txt
 tar xf /scratch/libraries.tar --directory=/output/libs
 # remove includes and manpages (add this once tested - reduces image by 45MB)
-# find /output -iname "share" -or -iname "include" | xargs rm -rf
+find /output -iname "share" -or -iname "include" | xargs rm -rf
 EOF
 RUN chmod +x /scratch/exportldd.sh && /scratch/exportldd.sh
 CMD ["./output/bin/$PROGRAM_FILE", "--version"]

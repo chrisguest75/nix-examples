@@ -11,9 +11,11 @@ RUN nix-build $NIX_FILE
 # NOTE: Escape the \$ otherwise they are rendered at buildtime
 COPY <<EOF /scratch/exportldd.sh
 #!/usr/bin/env bash
-LDD_PROGRAM=/nix/store/h0cnbmfcn93xm5dg2x27ixhag1cwndga-glibc-2.34-210-bin/bin/ldd
-AWK_PROGRAM=/nix/store/w3p77mkdy3pigg12iyha8y9dqakhjsxn-gawk-5.1.1/bin/awk
-mkdir -p /output/libs /output/bin
+# TODO: Make sure this is dynamically discovered
+find / -name "ldd"
+find / -name "gawk"
+LDD_PROGRAM=/nix/store/57xv61c5zi8pphjbcwxxjlgc34p61ic9-glibc-2.35-163-bin/bin/ldd
+AWK_PROGRAM=/nix/store/hwcdqw4jrjnd37wxqgsd47hd0j8bnj09-gawk-5.1.1/bin/gawkmkdir -p /output/libs /output/bin
 
 while IFS=, read -r PROGRAM_FILE
 do

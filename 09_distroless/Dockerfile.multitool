@@ -15,7 +15,8 @@ COPY <<EOF /scratch/exportldd.sh
 find / -name "ldd"
 find / -name "gawk"
 LDD_PROGRAM=/nix/store/57xv61c5zi8pphjbcwxxjlgc34p61ic9-glibc-2.35-163-bin/bin/ldd
-AWK_PROGRAM=/nix/store/hwcdqw4jrjnd37wxqgsd47hd0j8bnj09-gawk-5.1.1/bin/gawkmkdir -p /output/libs /output/bin
+AWK_PROGRAM=/nix/store/hwcdqw4jrjnd37wxqgsd47hd0j8bnj09-gawk-5.1.1/bin/gawk
+mkdir -p /output/libs /output/bin
 
 while IFS=, read -r PROGRAM_FILE
 do

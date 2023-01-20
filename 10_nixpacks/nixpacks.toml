@@ -1,0 +1,7 @@
+[phases.setup]
+nixPkgs = ["...", "ffmpeg"] 
+aptPkgs = ["...", "curl"]
+
+[phases.build]
+cmds = ["echo building!"]
+

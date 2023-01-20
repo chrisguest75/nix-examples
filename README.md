@@ -98,6 +98,11 @@ Steps [README.md](./08_ffmpeg/README.md)
 Demonstrate using `nix` package to install into a distroless/scratch image.  
 Steps [README.md](./09_distroless/README.md)  
 
+## 10 - Nixpacks
+
+Demonstrate how to use NixPacks to build containers.  
+Steps [README.md](./10_nixpacks/README.md)  
+
 ## 👀 Resources
 
 * [Minimal Docker Images](https://jpetazzo.github.io/2020/04/01/quest-minimal-docker-images-part-3/)  

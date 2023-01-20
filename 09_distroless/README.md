@@ -38,7 +38,7 @@ Build images that contain the all binaries required for the chosen tool.
 
 ```bash
 export BASEIMAGE=scratch
-export BASEIMAGE=gcr.io/distroless/nodejs:16 
+export BASEIMAGE=gcr.io/distroless/nodejs16-debian11:debug
 # jq
 docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=jq.nix --build-arg=PROGRAM_FILE=jq --progress=plain -f Dockerfile.jq --target PRODUCTION -t nix-jq .
 
@@ -51,7 +51,7 @@ dive nix-jq
 
 ```bash
 export BASEIMAGE=scratch
-export BASEIMAGE=gcr.io/distroless/nodejs:16 
+export BASEIMAGE=gcr.io/distroless/nodejs16-debian11
 # bento4
 docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=bento4.nix --build-arg=PROGRAM_FILE=mp42hls --progress=plain -f Dockerfile.bento4 --target PRODUCTION -t nix-bento4 .
 
@@ -64,7 +64,7 @@ dive nix-bento4
 
 ```bash
 export BASEIMAGE=scratch
-export BASEIMAGE=gcr.io/distroless/nodejs:16 
+export BASEIMAGE=gcr.io/distroless/nodejs16-debian11
 # sox
 docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=sox.nix --build-arg=PROGRAM_FILE=sox --progress=plain -f Dockerfile.sox --target PRODUCTION -t nix-sox .
 
@@ -77,7 +77,7 @@ dive nix-sox
 
 ```bash
 export BASEIMAGE=scratch
-export BASEIMAGE=gcr.io/distroless/nodejs:16 
+export BASEIMAGE=gcr.io/distroless/nodejs16-debian11
 # ffmpeg
 docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=ffmpeg-full.nix --build-arg=PROGRAM_FILE=ffmpeg --progress=plain -f Dockerfile.ffmpeg --target PRODUCTION -t nix-ffmpeg .
 
@@ -90,7 +90,7 @@ dive nix-ffmpeg
 
 ```bash
 export BASEIMAGE=scratch
-export BASEIMAGE=gcr.io/distroless/nodejs:16 
+export BASEIMAGE=gcr.io/distroless/nodejs16-debian11
 # ffmpeg
 docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=multitool.nix --progress=plain -f Dockerfile.multitool --target PRODUCTION -t nix-multitool .
 
@@ -107,7 +107,7 @@ If you need to troubleshoot the builds.
 ```sh
 # build builder target
 export BASEIMAGE=scratch
-export BASEIMAGE=gcr.io/distroless/nodejs:16 
+export BASEIMAGE=gcr.io/distroless/nodejs16-debian11:debug
 
 docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=jq.nix --build-arg=PROGRAM_FILE=jq --progress=plain -f Dockerfile.jq --target BUILDER -t nix-jq .
 docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=multitool.nix --progress=plain -f Dockerfile.multitool --target BUILDER -t nix-multitool .

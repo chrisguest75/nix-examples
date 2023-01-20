@@ -3,7 +3,7 @@ variable "TAG" {
   default = "latest"
 }
 variable "DISTROLESS" {
-  default = "gcr.io/distroless/nodejs:16"
+  default = "gcr.io/distroless/nodejs16-debian11"
 }
 variable "SCRATCH" {
   default = "scratch"

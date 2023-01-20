@@ -13,6 +13,7 @@ Demonstrate some examples of Nix in `docker`.
 * Understand if vulnerability detectors are just not seeing the issues.  What is vulnix?
 * These are some good examples - https://github.com/foggyubiquity/containizen  
 * Nix flakes https://nixos.wiki/wiki/Flakes.  Replacing nix-channels.
+* https://github.com/cachix/devenv
 
 ## 🏠 Install Nix
 

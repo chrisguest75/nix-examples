@@ -104,6 +104,17 @@ Steps [README.md](./09_distroless/README.md)
 Demonstrate how to use NixPacks to build containers.  
 Steps [README.md](./10_nixpacks/README.md)  
 
+## 11 - Flakes
+
+Demonstrate how to use `nix flakes`.  
+Steps [README.md](./11_flakes/README.md)  
+
+## 14 - Distroless Flakes
+
+Demonstrate how to use flakes to control versions of software used to build images.  
+Steps [README.md](./14_distroless_flakes/README.md)  
+
+
 ## 👀 Resources
 
 * Search more than 80 000 packages [here](https://search.nixos.org/)

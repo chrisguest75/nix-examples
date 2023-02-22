@@ -95,28 +95,34 @@ Installing specific versions of ffmpeg.
 # inside the container
 cd ./ffmpeg5.1.2
 # enter (this will install)
-nix develop --impure
+nix develop --impure --command bash -c 'ffmpeg -version'
 # ffmpeg version 5.1.2
-ffmpeg -version
 ```
 
 ```sh
 cd ./ffmpeg4
 # enter (this will install)
-nix develop --impure
+nix develop --impure --command bash -c 'ffmpeg -version'
 # ffmpeg version 4.4.3
-ffmpeg -version
 ```
 
-To a specific commit. To lock to a retrospective version you can copy the commitid from (nixos/nixpkgs) into the lock.  You can then run `nix flake check --impure` and copy the output conflicting NAR hash to match.  
+To a specific commit. To lock to a retrospective version you can copy the commitid from (nixos/nixpkgs) into the lock.  You can then run `nix flake check --impure` and copy the output conflicting NAR hash to match.  I also had to remove the ```"lastModified": 1677074004,``` property.  
 
 ```sh
 # inside the container
 cd ./ffmpeg5.1.1
 # enter (this will install)
-nix develop --impure
+nix develop --impure --command bash -c 'ffmpeg -version'
 # ffmpeg version 5.1.1
-ffmpeg -version
+```
+
+## jq
+
+```sh
+cd ./jq
+nix develop --impure --command bash -c 'echo $SHLVL && echo $PATH && jq --version'
+echo $SHLVL  
+echo $PATH
 ```
 
 ## Resources
@@ -129,9 +135,6 @@ ffmpeg -version
 * Nix Flakes: first steps [here](https://blog.kubukoz.com/flakes-first-steps/)
 * Nix Language [here](https://nixos.org/manual/nix/stable/language/index.html)
 * Nix Pills [here](https://nixos.org/guides/nix-pills/)
-
-
-
-
-
-https://discourse.nixos.org/t/how-to-fix-a-nar-hash-mismatch/16594
+* How to Learn Nix, Part 43: My first brush with flakes [here](https://ianthehenry.com/posts/how-to-learn-nix/flakes/)  
+* the-nix-way/nix-flake-dev-environments [here](https://github.com/the-nix-way/nix-flake-dev-environments/blob/main/node/flake.nix)
+* attribute self.lastModifiedDate missing #13 [here](https://github.com/NixOS/templates/issues/13)

@@ -10,5 +10,5 @@ echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
 EOF
 RUN "/work/enable-flakes.sh"
 
-ENTRYPOINT [ "/bin/bash" ]
+ENTRYPOINT [ "/root/.nix-profile/bin/bash" ]
 

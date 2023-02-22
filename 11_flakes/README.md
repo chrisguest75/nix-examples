@@ -4,22 +4,36 @@ Demonstrate how to use `nix flakes`.
 
 TODO:
 
-* What is nix bundle?  
+* What is nix bundle? 
+* How do I just build flake without entering it?  Or if I enter it how do I then run all the tools I need? `nix run` `error: flake 'path:/work/jq' does not provide attribute 'apps.x86_64-linux.default', 'defaultApp.x86_64-linux', 'packages.x86_64-linux.default' or 'defaultPackage.x86_64-linux'`
+
+NOTES:
+
+* The `flake.lock` file lock to a specific revision of the nix pkg.  
+* commits in nixpkgs [here](https://github.com/NixOS/nixpkgs/commits/master)  
+* To lock to a retrospective version you can copy the commitid into the lock.  If you run `nix flake check --impure` you can copy the NAR hash to match.  
 
 ## 🏠 Build and Run
 
 ```sh
 # build nix
-docker build --no-cache -t nix-flakes .
+docker build -f Dockerfile -t nix-flakes .
 
 # debugging and host repo in build folder
-docker run -v $(pwd):/work -it --entrypoint /root/.nix-profile/bin/bash nix-flakes 
+docker run -v "$(pwd):/work" --rm -it --entrypoint /root/.nix-profile/bin/bash nix-flakes 
 
 # inside container
 nix --help
+
+nix flake --help
+
+# get version
+nix-env --version
 ```
 
 ## Enabling flakes
+
+NOTE: This is not required for the `Dockerfile` as it is done on `docker build`  
 
 ```sh
 find / -iname "nix.conf"
@@ -43,27 +57,66 @@ cd ./hello-world
 
 nix flake new hello-world
 
-# forgot what imupure does
+# check the validity of the flake
+# NOTE: forgot exactly what imupure does (volatile output)
 nix flake check
 nix flake check --impure
 
-nix build --impure
 
-nix flake --help
+nix build --impure
 ```
 
+## Entering Flakes
+
 ```sh
+cd ./ffmpeg5
+
+# nix read evaluate print loop
 nix repl
 
 nix flake update
 
+# enter flake
+echo $SHLVL  
+echo $PATH
 nix develop --impure
 echo $SHLVL  
 echo $PATH
 
-
+# show environments
 nix flake show --impure
+```
 
+## ffmpeg 
+
+Installing specific versions of ffmpeg.  
+
+```sh
+# inside the container
+cd ./ffmpeg5.1.2
+# enter (this will install)
+nix develop --impure
+# ffmpeg version 5.1.2
+ffmpeg -version
+```
+
+```sh
+cd ./ffmpeg4
+# enter (this will install)
+nix develop --impure
+# ffmpeg version 4.4.3
+ffmpeg -version
+```
+
+To a specific commit. To lock to a retrospective version you can copy the commitid from (nixos/nixpkgs) into the lock.  You can then run `nix flake check --impure` and copy the output conflicting NAR hash to match.  
+
+```sh
+# inside the container
+cd ./ffmpeg5.1.1
+# enter (this will install)
+nix develop --impure
+# ffmpeg version 5.1.1
+ffmpeg -version
 ```
 
 ## Resources
@@ -77,3 +130,8 @@ nix flake show --impure
 * Nix Language [here](https://nixos.org/manual/nix/stable/language/index.html)
 * Nix Pills [here](https://nixos.org/guides/nix-pills/)
 
+
+
+
+
+https://discourse.nixos.org/t/how-to-fix-a-nar-hash-mismatch/16594

@@ -10,7 +10,6 @@ Demonstrate some examples of Nix in `docker`.
 
 * Build a custom nix package https://nixos.org/guides/nix-pills/index.html
 * Understand the Nix language and API
-* How do I view dependencies of packages?  
 * Understand if vulnerability detectors are just not seeing the issues.  What is vulnix?
 * These are some good examples - https://github.com/foggyubiquity/containizen  
 * Nix flakes https://nixos.wiki/wiki/Flakes.  Replacing nix-channels.
@@ -107,6 +106,7 @@ Steps [README.md](./10_nixpacks/README.md)
 
 ## 👀 Resources
 
+* Search more than 80 000 packages [here](https://search.nixos.org/)
 * [Minimal Docker Images](https://jpetazzo.github.io/2020/04/01/quest-minimal-docker-images-part-3/)  
 * [Nix-by-example](https://medium.com/@MrJamesFisher/nix-by-example-a0063a1a4c55)  
 * Nix Flakes: an Introduction [here](https://christine.website/blog/nix-flakes-1-2022-02-21)
@@ -114,3 +114,5 @@ Steps [README.md](./10_nixpacks/README.md)
 * How to Learn Nix [here](https://ianthehenry.com/posts/how-to-learn-nix/)
 * How to Learn Nix, Part 1: What's all this about? [here](https://ianthehenry.com/posts/how-to-learn-nix/introduction/)
 * awesome-nix [here](https://nix-community.github.io/awesome-nix/)
+
+https://github.com/NixOS/nix-book

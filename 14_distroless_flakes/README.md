@@ -52,6 +52,25 @@ docker run --rm -it --entrypoint /busybox/sh nix-flake-ffmpeg5-1-2
 dive nix-flake-ffmpeg5-1-2
 ```
 
+## Multitool
+
+```bash
+export BASEIMAGE=scratch
+export BASEIMAGE=gcr.io/distroless/nodejs16-debian11:debug
+# multiple tools
+docker build --build-arg=baseimage=$BASEIMAGE --build-arg=FLAKE=multitool --progress=plain -f Dockerfile.multitool --target PRODUCTION -t nix-flake-multitool .
+
+docker run --rm -it nix-flake-multitool --version
+# use /nodejs/bin/node if using distroless
+docker run --rm -it --entrypoint /usr/bin/jq nix-flake-multitool --version
+docker run --rm -it --entrypoint /usr/bin/ffmpeg nix-flake-multitool --version
+docker run --rm -it --entrypoint /usr/bin/sox nix-flake-multitool --version
+
+docker run --rm -it --entrypoint /busybox/sh nix-flake-multitool
+
+dive nix-flake-multitool
+```
+
 ## Resources 
 
 * How to Learn Nix, Part 43: My first brush with flakes [here](https://ianthehenry.com/posts/how-to-learn-nix/flakes/)  

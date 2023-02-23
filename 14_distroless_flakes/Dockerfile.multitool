@@ -2,7 +2,7 @@
 ARG baseimage="scratch"
 FROM nixos/nix:latest AS BUILDER
 
-ARG FLAKE=ffmpeg5.1.2 
+ARG FLAKE=multitool 
 
 WORKDIR /scratch
 
@@ -12,7 +12,7 @@ echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
 EOF
 RUN "/scratch/enable-flakes.sh"
 
-COPY ./ffmpeg5.1.2 ./
+COPY ./multitool ./
 
 # NOTE: Escape the \$ otherwise they are rendered at buildtime
 COPY --chmod=755 <<EOF /scratch/exportldd.sh
@@ -20,13 +20,16 @@ COPY --chmod=755 <<EOF /scratch/exportldd.sh
 # Make sure these are dynamically discovered
 LDD_PROGRAM=$(find / -type f -executable -name "ldd")
 AWK_PROGRAM=$(find / -type f -executable -name "gawk")
-FFMPEG_PROGRAM=$(find / -type f -executable -name "ffmpeg")
+FFMPEG_PROGRAM=$(which "ffmpeg")
+SOX_PROGRAM=$(which "sox")
+JQ_PROGRAM=$(which "jq")
 mkdir -p /output/libs /output/bin
 
 echo "LDD_PROGRAM=\$LDD_PROGRAM"
 echo "AWK_PROGRAM=\$AWK_PROGRAM"
 echo "FFMPEG_PROGRAM=\$FFMPEG_PROGRAM"
-echo \$(which ffmpeg)
+echo "SOX_PROGRAM=\$SOX_PROGRAM"
+echo "JQ_PROGRAM=\$JQ_PROGRAM"
 echo
 
 while IFS=, read -r PROGRAM_FILE
@@ -38,6 +41,8 @@ do
     cp "\$PROGRAM_FILE" /output/bin
 done << PROGRAMS
 \$FFMPEG_PROGRAM
+\$SOX_PROGRAM
+\$JQ_PROGRAM
 PROGRAMS
 
 tar -cvf /scratch/libraries.tar -T /scratch/libs_paths.txt

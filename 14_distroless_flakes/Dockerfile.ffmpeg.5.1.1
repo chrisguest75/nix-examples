@@ -29,7 +29,7 @@ echo \$FFMPEG_PROGRAM
 
 while IFS=, read -r PROGRAM_FILE
 do
-    echo \$PROGRAM_FILE
+    #echo \$PROGRAM_FILE
     \${LDD_PROGRAM} "\$PROGRAM_FILE" > /scratch/libs.txt
     cat /scratch/libs.txt | \${AWK_PROGRAM} 'NF == 4 { {print \$3} }' > /scratch/libs_extracted.txt    
     cat /scratch/libs_extracted.txt | \${AWK_PROGRAM} -F/ -vOFS=/ '{ print \$1,\$2,\$3,\$4; }' | sort -u >> /scratch/libs_paths.txt

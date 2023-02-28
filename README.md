@@ -114,6 +114,10 @@ Steps [README.md](./11_flakes/README.md)
 Demonstrate how to use flakes to control versions of software used to build images.  
 Steps [README.md](./14_distroless_flakes/README.md)  
 
+## 15 - Determinate System Installer
+
+Demonstrate how to use the Determinate Systems Installer.  
+Steps [README.md](./15_determinate_install/README.md)  
 
 ## 👀 Resources
 

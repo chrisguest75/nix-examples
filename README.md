@@ -129,5 +129,5 @@ Steps [README.md](./15_determinate_install/README.md)
 * How to Learn Nix [here](https://ianthehenry.com/posts/how-to-learn-nix/)
 * How to Learn Nix, Part 1: What's all this about? [here](https://ianthehenry.com/posts/how-to-learn-nix/introduction/)
 * awesome-nix [here](https://nix-community.github.io/awesome-nix/)
-
-https://github.com/NixOS/nix-book
+* Nix Book [here](https://github.com/NixOS/nix-book)  
+https://shopify.engineering/what-is-nix

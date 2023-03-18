@@ -32,7 +32,7 @@ tar xf /scratch/libraries.tar --directory=/output/libs
 find /output -iname "share" -or -iname "include" | xargs rm -rf
 EOF
 RUN chmod +x /scratch/exportldd.sh && /scratch/exportldd.sh
-CMD ["./output/bin/$PROGRAM_FILE", "--version"]
+CMD ["./output/bin/$PROGRAM_FILE", "-version"]
 
 FROM $baseimage AS PRODUCTION
 
@@ -40,4 +40,4 @@ COPY --from=BUILDER /output/bin/ /usr/bin/
 COPY --from=BUILDER /output/libs /
 
 ENTRYPOINT [ "/usr/bin/ffmpeg" ]
-CMD ["/usr/bin/ffmpeg", "--version"]
+CMD ["/usr/bin/ffmpeg", "-version"]

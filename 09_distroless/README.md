@@ -7,13 +7,13 @@ NOTES:
 * This produces images with applications containing only the binaries required to run them.  
 * Would be nice if `ADD` supported --from syntax as I wouldn't need to copy the files decompressed.  
 * Would also be nice if the `COPY` command supported an arbitrary list of folders to copy.  
+* Removes header files and manpages.  
 
 TODO:  
 
 * Create a more comprehensive script that copies across listed bins and dependencies.  
 * --output doesn't seem to work on macosx
 * slim down the ffmpeg builder and remove options not required.  
-* Remove header files and manpages.
 
 ## Bake
 
@@ -26,7 +26,7 @@ docker buildx bake --metadata-file ./bake-metadata.json --no-cache
 while IFS=, read -r imagesha
 do
     echo "IMAGE:$imagesha"
-    docker run --rm -t "$imagesha" --version
+    docker run --rm -t "$imagesha"
 done < <(jq -r '. | keys[] as $key | .[$key]."containerimage.digest"' ./bake-metadata.json)
 ```
 
@@ -51,11 +51,12 @@ dive nix-jq
 
 ```bash
 export BASEIMAGE=scratch
-export BASEIMAGE=gcr.io/distroless/nodejs16-debian11
+export BASEIMAGE=gcr.io/distroless/nodejs16-debian11:debug
 # bento4
 docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=bento4.nix --build-arg=PROGRAM_FILE=mp42hls --progress=plain -f Dockerfile.bento4 --target PRODUCTION -t nix-bento4 .
 
 docker run --rm -it nix-bento4 --version
+docker run --rm -it --entrypoint /busybox/sh nix-bento4
 
 dive nix-bento4
 ```
@@ -64,11 +65,12 @@ dive nix-bento4
 
 ```bash
 export BASEIMAGE=scratch
-export BASEIMAGE=gcr.io/distroless/nodejs16-debian11
+export BASEIMAGE=gcr.io/distroless/nodejs16-debian11:debug
 # sox
 docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=sox.nix --build-arg=PROGRAM_FILE=sox --progress=plain -f Dockerfile.sox --target PRODUCTION -t nix-sox .
 
 docker run --rm -it nix-sox --version
+docker run --rm -it --entrypoint /busybox/sh nix-sox
 
 dive nix-sox
 ```
@@ -115,8 +117,6 @@ docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=multitool.nix
 docker build --build-arg=baseimage=$BASEIMAGE --build-arg=NIX_FILE=bento4.nix --build-arg=PROGRAM_FILE=mp42hls --progress=plain -f Dockerfile.bento4 --target BUILDER -t nix-bento4 .
 
 docker run --rm -it nix-bento4 --version
-
-
 
 # exec into container
 docker run --rm -it --entrypoint /bin/sh nix-jq

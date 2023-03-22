@@ -8,7 +8,9 @@ WORKDIR /scratch
 
 COPY --chmod=755 <<EOF /scratch/enable-flakes.sh
 #!/usr/bin/env bash
-echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
+cat <<- HEREDOC > /etc/nix/nix.conf
+experimental-features = nix-command flakes
+HEREDOC
 EOF
 RUN "/scratch/enable-flakes.sh"
 

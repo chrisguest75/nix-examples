@@ -1,0 +1,17 @@
+.RECIPEPREFIX =  
+
+CXXFLAGS = -O3 -ggdb -m64
+LDFLAGS  = -m64
+
+all: helloworld
+.PRECIOUS: helloworld helloworld.o
+.PHONY: all clean
+
+%.o: %.cc
+	g++ -c $< -o $@ $(CXXFLAGS)
+
+%: %.o
+	g++ $^ -o $@ $(LDFLAGS)
+
+clean:
+	rm -f helloworld.o helloworld

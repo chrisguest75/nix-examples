@@ -27,6 +27,11 @@ docker run -v $(pwd)/.:/build -it --entrypoint /bin/sh nix-playground
 ## 📋 Configure
 
 ```sh
+# list installed packages.
+nix profile list
+# find curl and remove index
+nix profile remove 7
+
 # install man to view manpages
 nix-env -iA nixpkgs.man
 # show nix-env man

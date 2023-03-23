@@ -27,6 +27,9 @@ nix --help
 
 nix flake --help
 
+# there are a set of templates that can be used. 
+nix flake show templates
+
 # get version
 nix-env --version
 ```

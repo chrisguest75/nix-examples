@@ -41,3 +41,25 @@ In Nix, "pure" refers to the concept of purity of a function or expression. A pu
 In contrast, an "impure" function or expression may have side effects, such as modifying global state, reading or writing files, or communicating with external systems. An impure function may return different results for the same inputs or have observable effects on the program's state.  
 
 In the context of Nix, purity is an important concept because it allows for reliable and predictable behavior of the Nix package manager and build system. By ensuring that all expressions used in Nix are pure, it is possible to guarantee that the results of a build will be reproducible across different machines and at different times, regardless of the context in which the build is run. This makes it easier to share and distribute packages, and reduces the likelihood of unexpected errors or inconsistencies in the build process.  
+
+--pure discards most environment variables set on your your system when running the shell.  
+
+```sh
+nix-shell -p git --run "git --version" --pure -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/2a601aafdc5605a5133a2ca506a34a3a73377247.tar.gz
+```
+
+## Profiles
+
+In Nix, a profile is a set of symbolic links that point to the binary files and libraries of the packages that have been installed in a particular environment. Profiles allow multiple sets of packages to coexist on the same system without conflicting with each other.  
+
+When you install packages using Nix, they are added to the default profile, which is located in the /nix/var/nix/profiles/default directory. This profile is used by default when you run commands on the command line, and it contains the executables and libraries needed to run the packages that have been installed.  
+
+You can create additional profiles in Nix by using the nix-env command. For example, you could create a profile for a specific project or development environment by running:  
+
+```sh
+nix-env -iA nixpkgs.myProjectEnv
+```
+
+This would create a new profile that contains only the packages that are required by the myProjectEnv environment.  
+
+You can switch between profiles using the nix-env command, or by modifying the $PATH environment variable to include the appropriate profile directory. This allows you to use different sets of packages for different projects or purposes, without interfering with other environments on the same system.  

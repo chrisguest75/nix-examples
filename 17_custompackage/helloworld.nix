@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> {} }:
 
 pkgs.stdenv.mkDerivation rec {
-  pname = "simple-c-app";
+  pname = "helloworld";
   version = "1.0.0";
 
   src = ./.; # Use the current directory as the source
@@ -21,7 +21,7 @@ pkgs.stdenv.mkDerivation rec {
   '';
 
   meta = with pkgs.lib; {
-    description = "A simple C application packaged with Nix";
+    description = "A simple C++ application packaged with Nix";
     license = licenses.mit;
   };
 }

@@ -7,7 +7,7 @@ Building a Nix nodejs image
 We create three images:
 
 * `buildnixnode` - used to build nixnode image (the baseimage builder)
-* `nixnode` - used to build the imae containing nodejs and npm
+* `nixnode` - used to build the image containing nodejs and npm
 * `nixnodeapp` - the final image with the application in it
 
 ## Build nix image builer (buildnixnode)

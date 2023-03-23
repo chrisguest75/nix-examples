@@ -1,6 +1,6 @@
 # Single Package Docker Image
 
-Demonstrates how to build a single package docker image in Nix
+Demonstrates how to build a single package docker image in Nix  
 
 [Nix Docker Docs](https://nixos.org/manual/nixpkgs/stable/#sec-pkgs-dockerTools)
 

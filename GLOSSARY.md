@@ -34,3 +34,10 @@ Users can also create and use custom channels, which can be particularly useful 
 
 To manage channels, Nix provides the nix-channel command-line utility, which allows users to add, update, list, and remove channels. When a user updates their channels, Nix will fetch the latest package definitions and configurations, making them available for installation or updates.  
 
+## Pure
+
+In Nix, "pure" refers to the concept of purity of a function or expression. A pure function or expression is one that has no side effects and returns the same result every time it is called with the same arguments. This means that a pure function does not depend on any mutable state outside of its own scope and has no observable effects on the program's state.  
+
+In contrast, an "impure" function or expression may have side effects, such as modifying global state, reading or writing files, or communicating with external systems. An impure function may return different results for the same inputs or have observable effects on the program's state.  
+
+In the context of Nix, purity is an important concept because it allows for reliable and predictable behavior of the Nix package manager and build system. By ensuring that all expressions used in Nix are pure, it is possible to guarantee that the results of a build will be reproducible across different machines and at different times, regardless of the context in which the build is run. This makes it easier to share and distribute packages, and reduces the likelihood of unexpected errors or inconsistencies in the build process.  

@@ -5,11 +5,12 @@ Playground based on building `nix` in Docker (doesn't require local Nix install)
 ## Tools in Nix
 
 * nix
-* nix-env
+* nix-env - manipulate or query Nix user environments
 * nix-shell
 * nix-store - manipulate or query the Nix store
 * nix-build - build a Nix expression
-* nix-instantiate
+* nix-instantiate - instantiate store derivations from Nix expressions
+* nix repl - REPL environment
 
 ## 🏠 Build and Run
 

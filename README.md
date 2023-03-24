@@ -140,6 +140,17 @@ Steps [README.md](./15_determinate_install/README.md)
 Demonstrate how to build a custom package.  
 Steps [README.md](./17_custom_package/README.md)  
 
+## 20 - script dependencies
+
+Demonstrate how to write scripts that pack their dependencies.  
+Steps [README.md](./20_script_dependencies/README.md)  
+
+## 22 - shells
+
+Demonstrate how to write scripts that pack their dependencies.  
+Steps [README.md](./20_script_dependencies/README.md)  
+
+
 ## 👀 Resources
 
 * Search more than 80 000 packages [here](https://search.nixos.org/)

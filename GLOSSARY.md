@@ -1,5 +1,9 @@
 # GLOSSARY
 
+## Fetchers
+
+## Overlays
+
 ## Derivation
 
 A Nix derivation is a key concept in the Nix package manager and the NixOS operating system. Nix is a functional package management system designed to ensure consistent, reproducible, and isolated build environments for software packages. It treats packages as values in a functional programming language.  

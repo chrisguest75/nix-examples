@@ -23,7 +23,7 @@ docker run -v $(pwd)/.:/build -it --entrypoint /bin/sh nix-custom-package
 
 ```sh
 # build the package
-nix-build helloworld.nix
+nix-build helloworld_17.nix
 
 #execute it
 ./result/bin/helloworld 
@@ -37,8 +37,8 @@ nix-store --query --references /nix/store/193z2dc8slp7g95zjaczjalswd8l1j9z-simpl
 
 
 # THIS IS NOT WORKING
-nix-store -qR $(nix-store -r $(nix-build helloworld.nix))
-nix-shell -p helloworld
+nix-store -qR $(nix-store -r $(nix-build helloworld_17.nix))
+nix-shell -p helloworld_17
 ```
 
 ## Inspect

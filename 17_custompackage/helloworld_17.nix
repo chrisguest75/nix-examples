@@ -1,10 +1,12 @@
 { pkgs ? import <nixpkgs> {} }:
 
 pkgs.stdenv.mkDerivation rec {
-  pname = "helloworld";
+  pname = "helloworld_17";
   version = "1.0.0";
 
   src = ./.; # Use the current directory as the source
+
+  #outputs = [ "bin" ];
 
   buildInputs = [ 
     pkgs.gcc

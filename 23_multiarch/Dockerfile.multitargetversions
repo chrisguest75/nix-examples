@@ -1,0 +1,97 @@
+# syntax=docker/dockerfile:1.4
+ARG baseimage="scratch"
+FROM nixos/nix:latest AS BUILDER
+
+ARG FLAKE=multitargetversions 
+
+WORKDIR /scratch
+
+COPY --chmod=755 <<EOF /scratch/enable-flakes.sh
+#!/usr/bin/env bash
+cat <<- HEREDOC > /etc/nix/nix.conf
+experimental-features = nix-command flakes
+# WARNING: This is a security risk - for arm builds only
+filter-syscalls = false
+HEREDOC
+EOF
+RUN "/scratch/enable-flakes.sh"
+
+COPY ./multitargetversions ./
+
+# NOTE: Escape the \$ otherwise they are rendered at buildtime
+COPY --chmod=755 <<EOF /scratch/exportldd.sh
+#!/usr/bin/env bash
+# Make sure these are dynamically discovered
+LDD_PROGRAM=$(find / -type f -executable -name "ldd")
+AWK_PROGRAM=$(find / -type f -executable -name "gawk")
+FFMPEG_PROGRAM=$(which "ffmpeg")
+SOX_PROGRAM=$(which "sox")
+JQ_PROGRAM=$(which "jq")
+mkdir -p /output/libs /output/bin
+
+echo "LDD_PROGRAM=\$LDD_PROGRAM"
+echo "AWK_PROGRAM=\$AWK_PROGRAM"
+echo "FFMPEG_PROGRAM=\$FFMPEG_PROGRAM"
+echo "SOX_PROGRAM=\$SOX_PROGRAM"
+echo "JQ_PROGRAM=\$JQ_PROGRAM"
+echo
+
+while IFS=, read -r PROGRAM_FILE
+do
+    #echo \$PROGRAM_FILE
+    \${LDD_PROGRAM} "\$PROGRAM_FILE" > /scratch/libs.txt
+    cat /scratch/libs.txt | \${AWK_PROGRAM} 'NF == 4 { {print \$3} }' > /scratch/libs_extracted.txt    
+    cat /scratch/libs_extracted.txt | \${AWK_PROGRAM} -F/ -vOFS=/ '{ print \$1,\$2,\$3,\$4; }' | sort -u >> /scratch/libs_paths.txt
+    cp "\$PROGRAM_FILE" /output/bin
+done << PROGRAMS
+\$FFMPEG_PROGRAM
+\$SOX_PROGRAM
+\$JQ_PROGRAM
+PROGRAMS
+
+tar -cvf /scratch/libraries.tar -T /scratch/libs_paths.txt
+tar xf /scratch/libraries.tar --directory=/output/libs
+# remove includes and manpages (add this once tested - reduces image by 45MB)
+find /output -iname "share" -or -iname "include" | xargs rm -rf
+EOF
+
+RUN nix develop --impure --command bash -c '/scratch/exportldd.sh'
+ 
+CMD ["./output/bin/$PROGRAM_FILE", "-version"]
+
+FROM $baseimage AS PRODUCTION
+
+RUN apt-get update \
+        && apt-get install cpuinfo file -y \ 
+        && apt-get clean \
+        && rm -rf /var/lib/apt/lists/*
+
+# NOTE: Escape the \$ otherwise they are rendered at buildtime
+COPY --chmod=755 <<EOF /usr/bin/show_architecture.sh
+#!/usr/bin/env bash
+echo "************************************************"
+echo "** /proc/version"
+echo "************************************************"
+cat /proc/version
+echo "************************************************"
+echo "** lscpu"
+echo "************************************************"
+lscpu
+echo "************************************************"
+echo "** cpu-info"
+echo "************************************************"
+cpu-info
+uname -a
+echo "************************************************"
+echo "** files"
+echo "************************************************"
+file /usr/bin/ffmpeg
+file /usr/bin/jq
+file /usr/bin/sox
+EOF
+
+COPY --from=BUILDER /output/bin/ /usr/bin/
+COPY --from=BUILDER /output/libs /
+
+ENTRYPOINT [ "/usr/bin/show_architecture.sh" ]
+CMD []

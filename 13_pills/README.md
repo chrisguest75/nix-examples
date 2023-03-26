@@ -16,7 +16,7 @@ NOTES:
 # build nix
 docker build -t nix-pills .
 # debugging and host repo in build folder
-docker run -v $(pwd)/.:/build -it --entrypoint /bin/sh nix-pills
+docker run -v $(pwd)/.:/build -it --entrypoint bash nix-pills
 ```
 
 ## Chapter 3. Enter the Environment

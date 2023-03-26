@@ -1,9 +1,31 @@
 # Pills
 
+TODO:
+
+* What is the difference between profiles and generations?  
+
+
 NOTES:  
 
 * In Nix, everything is an expression, there are no statements. This is common in functional languages.
 * Values in Nix are immutable.
+
+## 🏠 Build and Run
+
+```sh
+# build nix
+docker build -t nix-pills .
+# debugging and host repo in build folder
+docker run -v $(pwd)/.:/build -it --entrypoint /bin/sh nix-pills
+```
+
+## Chapter 3. Enter the Environment
+
+REF: [enter-environment](https://nixos.org/guides/nix-pills/enter-environment.html)  
+
+### Generations
+
+Shows a rollback.  
 
 ```sh
 nix-env --list-generations
@@ -12,14 +34,27 @@ nix-channel --list
 # update channels
 nix-channel --update
 
+# install hello and create new generation
+nix-env -i hello
+
+# run hello
+hello
+
+nix-env --list-generations
+
+# rollback
+nix-env --rollback
+
+# cannot run hello
+hello
+
 nix-env --list-generations
 ```
-
 
 ## Repl
 
 ```sh
-nix-repl
+nix repl
 
 1+3 
 6/ 2
@@ -51,22 +86,24 @@ The following commands are available:
 
 ```
 
+## Chapter 6. Our First Derivation
+
+REF: [our-first-derivation](https://nixos.org/guides/nix-pills/our-first-derivation.html)  
+
 ## Build
 
 ```sh
- d = derivation { name = "myname"; builder = "mybuilder"; system = builtins.currentSystem; } 
+d = derivation { name = "myname"; builder = "mybuilder"; system = builtins.currentSystem; } 
 
 :b d
 ```
 
 ## Resources
 
-https://nixos.org/guides/nix-pills/enter-environment.html
-
-https://nixos.org/guides/nix-pills
-
+* Nix Pills [here](https://nixos.org/guides/nix-pills)
 
 https://nixos.wiki/wiki/Cheatsheet
 
 https://nixos.org/manual/nix/stable/language/builtins.html
-
+ 
+https://nixos.org/guides/nix-pills/enter-environment.html

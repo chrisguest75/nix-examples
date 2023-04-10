@@ -25,6 +25,9 @@ docker images
 ## 🏠 Inside build container
 
 ```sh
+# look at files
+dive bash:latest
+
 # jump into bash in container
 docker run -it bash:latest
 

@@ -8,3 +8,19 @@
 * https://github.com/cachix/devenv
 * Add example of using a repo with a nix flake in it.  https://github.com/the-nix-way/nix-flake-dev-environments/blob/main/node/README.md
 
+
+* nix copy
+* nix-collect-garbage
+https://ops.functionalalgebra.com/nix-by-example/
+
+https://learnxinyminutes.com/docs/nix/
+https://scvalex.net/posts/68/
+
+https://determinate.systems/posts/moving-stuff-around-with-nix
+
+
+https://github.com/astro/microvm.nix
+https://github.com/flox
+
+Nix microvms
+https://github.com/nix-how/nix-demos

@@ -8,6 +8,32 @@ Demonstrate some examples of Nix in `docker`.
 
 A list of things still to try and investigate [TODO.md](./TODO.md)  
 
+- [README](#readme)
+  - [Nix](#nix)
+  - [Glossary](#glossary)
+  - [🏠 Install Nix](#-install-nix)
+  - [Index and Locate files](#index-and-locate-files)
+  - [00 - Nix playground](#00---nix-playground)
+  - [01 - Simple Nix](#01---simple-nix)
+  - [02 - Single Package Docker Image](#02---single-package-docker-image)
+  - [03 - Multi Package Docker Image](#03---multi-package-docker-image)
+  - [04 - Installing Software](#04---installing-software)
+  - [05 - Installing Environments](#05---installing-environments)
+  - [06 - Build Nix docker image in docker](#06---build-nix-docker-image-in-docker)
+  - [07 - Build Nix `nodejs` image in docker](#07---build-nix-nodejs-image-in-docker)
+  - [08 - Build `ffmpeg` issue](#08---build-ffmpeg-issue)
+  - [09 - Build `distroless` images](#09---build-distroless-images)
+  - [10 - Nixpacks](#10---nixpacks)
+  - [11 - Flakes](#11---flakes)
+  - [12 - Bundle](#12---bundle)
+  - [14 - Distroless Flakes](#14---distroless-flakes)
+  - [15 - Determinate System Installer](#15---determinate-system-installer)
+  - [16 - Nodejs Builds](#16---nodejs-builds)
+  - [17 - custom package](#17---custom-package)
+  - [20 - script dependencies](#20---script-dependencies)
+  - [22 - shells](#22---shells)
+  - [👀 Resources](#-resources)
+
 ## Nix
 
 Nix is a powerful and flexible package manager for Unix-based systems, such as Linux and macOS. It was created to address some of the limitations and problems associated with traditional package managers like apt, yum, and pacman. Nix provides a reliable and reproducible way of managing software packages and their dependencies.  
@@ -95,6 +121,11 @@ Steps [README.md](./03_multi_package_docker/README.md)
 Demonstrates how to install software using nix package manager  
 Steps [README.md](./04_instaling_software/README.md)  
 
+## 05 - Installing Environments
+
+Demonstrate how to define environments.  
+Steps [README.md](./05_installing_environments/README.md)  
+
 ## 06 - Build Nix docker image in docker
 
 Building a Nix image inside a container  
@@ -124,6 +155,11 @@ Steps [README.md](./10_nixpacks/README.md)
 
 Demonstrate how to use `nix flakes`.  
 Steps [README.md](./11_flakes/README.md)  
+
+## 12 - Bundle
+
+Demonstrate how to use `nix bundles`.  
+Steps [README.md](./12_bundling/README.md)  
 
 ## 14 - Distroless Flakes
 

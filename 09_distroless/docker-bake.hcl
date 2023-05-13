@@ -122,6 +122,34 @@ target "ffmpeg-image-scratch" {
 }
 
 #***********************************************
+# ffmpeg images
+#***********************************************
+
+target "ffmpeg6-image" {
+  args = {"NIX_FILE":"ffmpeg_6.nix", "PROGRAM_FILE":"ffmpeg"}
+  context = "."
+  dockerfile = "Dockerfile.ffmpeg6"
+}
+
+target "ffmpeg6-image-distroless" {
+  inherits = ["ffmpeg6-image"]
+  args = {"baseimage":"${DISTROLESS}"}
+  labels = {
+    "org.opencontainers.image.title"= "nix-ffmpeg6-distroless:${TAG}"
+  }
+  tags = ["nix-ffmpeg6-distroless:${TAG}"]
+}
+
+target "ffmpeg6-image-scratch" {
+  inherits = ["ffmpeg6-image"]
+  args = {"baseimage":"${SCRATCH}"}
+  labels = {
+    "org.opencontainers.image.title"= "nix-ffmpeg6-scratch:${TAG}"
+  }
+  tags = ["nix-ffmpeg6-scratch:${TAG}"]
+}
+
+#***********************************************
 # multitool images
 #***********************************************
 
@@ -163,6 +191,8 @@ group "default" {
     "sox-image-scratch",
     "ffmpeg-image-distroless", 
     "ffmpeg-image-scratch",
+    "ffmpeg6-image-distroless", 
+    "ffmpeg6-image-scratch",    
     "multitool-image-distroless", 
     "multitool-image-scratch"
     ]

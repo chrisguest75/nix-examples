@@ -135,6 +135,11 @@ Steps [README.md](./14_distroless_flakes/README.md)
 Demonstrate how to use the Determinate Systems Installer.  
 Steps [README.md](./15_determinate_install/README.md)  
 
+## 16 - Nodejs Builds
+
+Demonstrate the difference with the default nodejs, distrolesss and nix.  
+Steps [README.md](./16_nodejs/README.md)  
+
 ## 17 - custom package
 
 Demonstrate how to build a custom package.  

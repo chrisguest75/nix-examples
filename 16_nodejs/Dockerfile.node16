@@ -1,0 +1,35 @@
+# syntax=docker/dockerfile:1.4
+ARG baseimage="scratch"
+FROM nixos/nix:latest AS BUILDER
+
+ARG FLAKE=node16
+
+WORKDIR /scratch
+
+COPY --chmod=755 <<EOF /scratch/enable-flakes.sh
+#!/usr/bin/env bash
+echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
+EOF
+RUN "/scratch/enable-flakes.sh"
+
+COPY ./node16 ./
+
+COPY --chmod=755 <<EOF /scratch/version.sh
+#!/usr/bin/env bash
+# Make sure these are dynamically discovered
+nix develop --impure --command bash -c "node --version"
+EOF
+
+# NOTE: Escape the \$ otherwise they are rendered at buildtime
+COPY --chmod=755 <<EOF /scratch/start.sh
+#!/usr/bin/env bash
+# Make sure these are dynamically discovered
+
+#nix develop --impure --command bash -c '/scratch/version.sh'
+nix develop --impure --command bash -c "node --version"
+EOF
+
+RUN "/scratch/start.sh"
+
+ENTRYPOINT [ "/scratch/version.sh" ]
+CMD [ "/scratch/version.sh" ]

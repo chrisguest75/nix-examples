@@ -32,7 +32,7 @@ Build the docker container environment.
 docker build -t nix-playground .
 
 # debugging and host repo in build folder
-docker run -v $(pwd)/..:/build -it --entrypoint /bin/sh nix-playground    
+docker run -v $(pwd)/..:/build -it --entrypoint /bin/sh nix-playground
 ```
 
 ## 📋 Configure
@@ -65,6 +65,9 @@ ls /nix/store/
 
 # the path to the bins
 ls -l /root/.nix-profile/bin
+
+# location where channel packages are stored locally
+cd .nix-defexpr/channels/nixpkgs/
 ```
 
 ### nix-info
@@ -88,6 +91,9 @@ nix-info -m
 Add packages to the current environment.  
 
 ```sh
+# to ensure latest packages you need to update
+nix-channel --update
+
 # run shell with bash
 nix-env -iA nixpkgs.bash
 bash
@@ -137,3 +143,4 @@ Steps [README.md](./01_simple_python/README.md)
 
 * Ad hoc developer environments [here](https://nixos.org/guides/ad-hoc-developer-environments.html)  
 * Towards reproducibility: pinning Nixpkgs [here](https://nix.dev/tutorials/towards-reproducibility-pinning-nixpkgs.html)  
+* NixOS/nixpkgs/tags [here](https://github.com/NixOS/nixpkgs/tags)  

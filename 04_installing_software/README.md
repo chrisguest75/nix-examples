@@ -9,19 +9,19 @@ Demonstrates how to install software using nix package manager
 
 ## 🗺 Discover
 
-```sh
-# search for jq
-https://search.nixos.org/
+Search for `jq` on package manager [search.nixos.org](https://search.nixos.org/)  
 
+```sh
 # query all the packages
 nix-env -qa 
+
 # partial matches - beginning with jq
-nix-env -qa 'jq.*'        
+nix-env -qa 'jq.*'
 ```
 
 ## 👨‍💻 Install
 
-Install the package  
+Install the packages  
 
 ```sh
 # nixpkgs is the channel
@@ -29,7 +29,6 @@ nix-env -iA nixpkgs.jq
 
 # how to install stable vs unstable
 nix-env -iA nixpkgs.jql
-
 
 # list installed packages
 nix-env --query --installed
@@ -49,20 +48,56 @@ which jq
 ldd $(which jq)
 ```
 
+Create a shell and run a command.  
+
 ```sh
 # pure shell with run command
 nix-shell --pure -p jq --run "jq --version"   
 ```
 
-## 📝 Channels
-
-nix-channels [docs](https://nixos.wiki/wiki/Nix_channels)
+## Profiles
 
 ```sh
+# profile list
+nix profile list
+
+# install a package 
+nix profile install nixpkgs#jq
+
+# show the history of the profiles
+nix profile history
+```
+
+## 📝 Channels
+
+nix-channels [docs](https://nixos.wiki/wiki/Nix_channels)  
+
+```sh
+# default in the container is unstable.  
 nix-channel --list
+
+# add a unstable channel - this is already default in the container.
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+# you may find packages are unavailable until you update.  
+nix-channel --update
+
+# find ffmpeg 
+nix-env -qa 'ffmpeg.*'
+
+# hydra checks build status
+ix-env -iA nixpkgs.hydra-check
+hydra-check --channel unstable ffmpeg_6
+hydra-check --channel 22.11 ffmpeg_6
+hydra-check --channel unstable ffmpeg_5
+hydra-check --channel 22.11 ffmpeg_5
+
+# how to install stable vs unstable
+nix-env -iA nixpkgs.ffmpeg
 ```
 
 ## Resources
 
 * nix-channels [here](https://nixos.wiki/wiki/Nix_channels)  
-* nix package search [here](https://search.nixos.org/)
+* nix package search [here](https://search.nixos.org/)  
+* Package Revisions [here](https://lazamar.co.uk/nix-versions/?channel=nixpkgs-unstable&package=kubectl)  
+* check hydra for the build status of a package in a given channel. [here](https://github.com/nix-community/hydra-check)  

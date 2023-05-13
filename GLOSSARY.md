@@ -56,7 +56,7 @@ nix-shell -p git --run "git --version" --pure -I nixpkgs=https://github.com/NixO
 
 In Nix, a profile is a set of symbolic links that point to the binary files and libraries of the packages that have been installed in a particular environment. Profiles allow multiple sets of packages to coexist on the same system without conflicting with each other.  
 
-When you install packages using Nix, they are added to the default profile, which is located in the /nix/var/nix/profiles/default directory. This profile is used by default when you run commands on the command line, and it contains the executables and libraries needed to run the packages that have been installed.  
+When you install packages using Nix, they are added to the default profile, which is located in the `/nix/var/nix/profiles/default` directory. This profile is used by default when you run commands on the command line, and it contains the executables and libraries needed to run the packages that have been installed.  
 
 You can create additional profiles in Nix by using the nix-env command. For example, you could create a profile for a specific project or development environment by running:  
 
@@ -64,6 +64,6 @@ You can create additional profiles in Nix by using the nix-env command. For exam
 nix-env -iA nixpkgs.myProjectEnv
 ```
 
-This would create a new profile that contains only the packages that are required by the myProjectEnv environment.  
+This would create a new profile that contains only the packages that are required by the `myProjectEnv` environment.  
 
-You can switch between profiles using the nix-env command, or by modifying the $PATH environment variable to include the appropriate profile directory. This allows you to use different sets of packages for different projects or purposes, without interfering with other environments on the same system.  
+You can switch between profiles using the nix-env command, or by modifying the `$PATH` environment variable to include the appropriate profile directory. This allows you to use different sets of packages for different projects or purposes, without interfering with other environments on the same system.  

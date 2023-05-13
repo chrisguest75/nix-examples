@@ -11,13 +11,17 @@ NOTES:
 ```sh
 # build nix
 docker build -t nix-script-dependencies .
+
 # debugging and host repo in build folder
 docker run -v $(pwd)/.:/build -it --entrypoint /bin/sh nix-script-dependencies
 ```
 
-## Build the package
+## Example
+
+Running the script ensure all of it's listed dependencies are installed on first execution.  
 
 ```sh
+# running this script 
 ./script.sh
 ```
 

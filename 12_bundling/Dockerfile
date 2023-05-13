@@ -1,6 +1,5 @@
 # syntax=docker/dockerfile:1.4
 FROM nixos/nix:latest
-#FROM ubuntu:20.04
 
 WORKDIR /work
 

@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1.4
 FROM nixos/nix:latest
-#FROM ubuntu:20.04
 
+# enable flakes
 RUN bash <<EOF 
 #!/usr/bin/env bash
 cat <<- HEREDOC > /etc/nix/nix.conf

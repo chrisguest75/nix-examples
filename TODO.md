@@ -24,3 +24,14 @@ https://github.com/flox
 
 Nix microvms
 https://github.com/nix-how/nix-demos
+
+
+
+nix-tree
+https://github.com/utdemir/nix-tree
+
+graph
+https://www.tweag.io/blog/2022-09-13-nixpkgs-graph/
+
+Option nix --help
+--no-allow-symlinked-store

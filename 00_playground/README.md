@@ -68,6 +68,12 @@ ls -l /root/.nix-profile/bin
 
 # location where channel packages are stored locally
 cd .nix-defexpr/channels/nixpkgs/
+
+# latest commitid
+curl -L https://nixos.org/channels/nixpkgs-unstable/git-revision
+
+# version of channel nixpkgs
+nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'  | tr -d '"'
 ```
 
 ### nix-info
@@ -144,3 +150,4 @@ Steps [README.md](./01_simple_python/README.md)
 * Ad hoc developer environments [here](https://nixos.org/guides/ad-hoc-developer-environments.html)  
 * Towards reproducibility: pinning Nixpkgs [here](https://nix.dev/tutorials/towards-reproducibility-pinning-nixpkgs.html)  
 * NixOS/nixpkgs/tags [here](https://github.com/NixOS/nixpkgs/tags)  
+* holidaycheck/nix-venient repo [here](https://github.com/holidaycheck/nix-venient)  

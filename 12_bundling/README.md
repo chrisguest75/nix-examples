@@ -1,4 +1,4 @@
-# FLAKES
+# BUNDLE
 
 Demonstrate how to use `nix bundles`.  
 

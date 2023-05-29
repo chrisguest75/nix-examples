@@ -1,42 +1,68 @@
 # GENERATORS
 
-Demonstrate generators for generating nixos images   
+Demonstrate generators for generating nixos images.  
+
+The nixos-generators project allows to take the same NixOS configuration, and generate outputs for different target formats.  
+
+NOTES:
+
+* The generators generate outputs under `/nix/store`
+
+
+TODO:
+
+* Raspbian - https://nixos.wiki/wiki/NixOS_on_ARM/Raspberry_Pi_4
+* Vagrant basebox - https://nixos.wiki/wiki/Vagrant
 
 ## Install
 
 Use the deteminate systems installer [here](../15_determinate_install/README.md)  
 
 ```sh
-# install
+# install the generators package
 nix profile install github:nix-community/nixos-generators
 
+# should show the path to the default configuration.nix
+nix-generate --help
+```
+
+Example `configuration.nix`  
+
+```nix
+{ config, lib, pkgs, ... }:
+{
+  services.sshd.enable = true;
+  services.nginx.enable = true;
+
+  networking.firewall.allowedTCPPorts = [ 80 ];
+  
+  users.users.root.password = "nixos";
+  services.openssh.permitRootLogin = lib.mkDefault "yes";
+  services.getty.autologinUser = lib.mkDefault "root";
+}
+```
+
+## Generate
+
+```sh
+# list the output types
 nixos-generate --list 
 
+# clean up 
+rm -rf ./out
 
-nixos-generate -f iso
+# generate a symlink of the built iso
+nixos-generate -f iso -o ./out
 
-/nix/store/h1ap4xr9mvj3q9rx8slbf6zwjazf9q93-nixos.iso/iso/nixos.iso
-
-nixos-generate -f virtualbox
-
-/nix/store/5qf5m38758s4sgi8j5790f2bhv1z76i9-nixos-ova-23.05pre-git-x86_64-linux/nixos-23.05pre-git-x86_64-linux.ova
-
+# generate ova
+nixos-generate -f virtualbox -o ./out
 
 # this works in virtual box
-nixos-generate -f install-iso
-
-/nix/store/klfsa8bwd3165j6s3s1gw86xx6s1yq9w-nixos-23.05pre-git-x86_64-linux.isonixos.iso/iso/nixos-23.05pre-git-x86_64-linux.isonixos.iso
-
-
-nix-shell --command './nixos-generate -f iso -I nixpkgs=channel:nixos-22.11'
+nixos-generate -f install-iso -I nixpkgs=channel:nixos-22.11 -o ./out
 
 ```
 
-
-
-
 ## Resources
 
-* https://channels.nixos.org/
-* https://github.com/nix-community/nixos-generators
-
+* nix-channels [here](https://channels.nixos.org/)  
+* nix-community/nixos-generators repo [here](https://github.com/nix-community/nixos-generators)  

@@ -8,7 +8,6 @@ NOTES:
 
 * The generators generate outputs under `/nix/store`
 
-
 TODO:
 
 * Raspbian - https://nixos.wiki/wiki/NixOS_on_ARM/Raspberry_Pi_4
@@ -59,10 +58,34 @@ nixos-generate -f virtualbox -o ./out
 
 # this works in virtual box
 nixos-generate -f install-iso -I nixpkgs=channel:nixos-22.11 -o ./out
+```
 
+## Vagrant
+
+```sh
+# create
+./create.sh nix-22.11-amd64
+
+# cleanup
+./destroy.sh nix-22.11-amd64 
+```
+
+
+## Docker
+
+```sh
+# build a docker image
+nixos-generate -f docker -I nixpkgs=channel:nixos-22.11 -o ./out
+
+# load docker image
+docker import ./out/tarball/nixos-system-x86_64-linux.tar.xz mynix:latest
+
+# dive into container
+dive mynix:latest       
 ```
 
 ## Resources
 
 * nix-channels [here](https://channels.nixos.org/)  
 * nix-community/nixos-generators repo [here](https://github.com/nix-community/nixos-generators)  
+* Configuration.nix docs [here](https://nixos.org/manual/nixos/stable/index.html#sec-configuration-syntax)  

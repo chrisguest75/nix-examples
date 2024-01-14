@@ -22,8 +22,7 @@ brew install commitizen
 code --install-extension vivaxy.vscode-conventional-commits
 
 # install hooks
-pre-commit install --install-hooks --overwrite --config .pre-commit-config.yaml
-pre-commit autoupdate
+pre-commit install --hook-type commit-msg --hook-type pre-push
 ```
 
 ## Contents

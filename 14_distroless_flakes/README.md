@@ -2,6 +2,10 @@
 
 Demonstrate how to use flakes to control versions of software used to build images.  
 
+TODO:
+
+* Convert this to a bake build.  
+
 ## Reason
 
 We can use flakes to control installs of software more accurately.  

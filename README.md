@@ -1,6 +1,8 @@
 # README
 
-[![Repository](https://skillicons.dev/icons?i=docker,bash,linux)](https://skillicons.dev)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)  
+
+[![Repository](https://skillicons.dev/icons?i=docker,bash,linux)](https://skillicons.dev)  
 
 Demonstrate some examples of Nix in `docker`.  
 
@@ -21,6 +23,7 @@ code --install-extension vivaxy.vscode-conventional-commits
 
 # install hooks
 pre-commit install --install-hooks --overwrite --config .pre-commit-config.yaml
+pre-commit autoupdate
 ```
 
 ## Contents

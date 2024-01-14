@@ -8,7 +8,26 @@ Demonstrate some examples of Nix in `docker`.
 
 A list of things still to try and investigate [TODO.md](./TODO.md)  
 
+## Conventional Commits
+
+NOTE: This repo has switched to [conventional commits](https://www.conventionalcommits.org/en/v1.0.0). It requires `pre-commit` and `commitizen` to help with controlling this.  
+
+```sh
+# install pre-commmit (prerequisite for commitizen)
+brew install pre-commit
+brew install commitizen
+# conventional commits extension
+code --install-extension vivaxy.vscode-conventional-commits
+
+# install hooks
+pre-commit install --install-hooks --overwrite --config .pre-commit-config.yaml
+```
+
+## Contents
+
 - [README](#readme)
+  - [Conventional Commits](#conventional-commits)
+  - [Contents](#contents)
   - [Nix](#nix)
   - [Glossary](#glossary)
   - [🏠 Install Nix](#-install-nix)

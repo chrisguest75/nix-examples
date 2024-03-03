@@ -216,6 +216,7 @@ Steps [README.md](./20_script_dependencies/README.md)
 ## 👀 Resources
 
 * Search more than 80 000 packages [here](https://search.nixos.org/)
+* Nixhub - Search over 400,000 granular versions of nix packages [here](https://www.nixhub.io/)  
 * [Minimal Docker Images](https://jpetazzo.github.io/2020/04/01/quest-minimal-docker-images-part-3/)  
 * [Nix-by-example](https://medium.com/@MrJamesFisher/nix-by-example-a0063a1a4c55)  
 * Nix Flakes: an Introduction [here](https://christine.website/blog/nix-flakes-1-2022-02-21)

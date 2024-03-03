@@ -141,3 +141,6 @@ echo $PATH
 * How to Learn Nix, Part 43: My first brush with flakes [here](https://ianthehenry.com/posts/how-to-learn-nix/flakes/)  
 * the-nix-way/nix-flake-dev-environments [here](https://github.com/the-nix-way/nix-flake-dev-environments/blob/main/node/flake.nix)
 * attribute self.lastModifiedDate missing #13 [here](https://github.com/NixOS/templates/issues/13)
+
+* NIX FLAKES, PART 1: AN INTRODUCTION AND TUTORIAL [here](https://www.tweag.io/blog/2020-05-25-flakes/)
+* Flakes templates [github.com/NixOS/templates](https://github.com/NixOS/templates/tree/master)  

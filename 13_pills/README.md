@@ -1,22 +1,69 @@
-# Pills
+# NIX PILLS
 
 TODO:
 
 * What is the difference between profiles and generations?  
-
 
 NOTES:  
 
 * In Nix, everything is an expression, there are no statements. This is common in functional languages.
 * Values in Nix are immutable.
 
+## Contents
+
+- [NIX PILLS](#nix-pills)
+  - [Contents](#contents)
+  - [Pills](#pills)
+  - [🏠 Build and Run](#-build-and-run)
+  - [Chapter 2. Installation](#chapter-2-installation)
+    - [Profiles](#profiles)
+  - [Chapter 3. Enter the Environment](#chapter-3-enter-the-environment)
+    - [Generations](#generations)
+    - [Querying Store](#querying-store)
+    - [Closures](#closures)
+  - [Chapter 4. The Basics of the Language](#chapter-4-the-basics-of-the-language)
+  - [Repl](#repl)
+  - [Chapter 6. Our First Derivation](#chapter-6-our-first-derivation)
+  - [Build](#build)
+  - [Resources](#resources)
+
+## Pills
+
+Goto [nixos.org/guides/nix-pills](https://nixos.org/guides/nix-pills/)
+
 ## 🏠 Build and Run
 
 ```sh
 # build nix
 docker build -t nix-pills .
+
 # debugging and host repo in build folder
-docker run -v $(pwd)/.:/build -it --entrypoint bash nix-pills
+docker run -v .:/build -it --entrypoint /bin/sh nix-pills
+```
+
+## Chapter 2. Installation
+
+I've used [15_determinate_install/README.md](../15_determinate_install/README.md) to install.  
+
+```sh
+nix-env -iA sqlite -f '<nixpkgs>'
+
+sqlite3 /nix/var/nix/db/db.sqlite
+
+# this is read-only.....
+.table
+
+.quit
+```
+
+### Profiles
+
+```sh
+# shows symlink
+ls -l ~/.nix-profile
+
+# shows profile 
+ls ~/.nix-profile
 ```
 
 ## Chapter 3. Enter the Environment
@@ -51,6 +98,46 @@ hello
 nix-env --list-generations
 ```
 
+### Querying Store
+
+Query the store.  
+
+```sh
+nix-env -i hello
+
+# package
+nix-shell -p hello
+
+# references
+nix-store -q --references `which hello`
+
+# referred by
+nix-store -q --referrers `which hello`
+
+# packages
+nix-shell -p python311Full python311Packages.pip pipenv
+
+# references
+nix-store -q --references `which pipenv`
+
+# referred by
+nix-store -q --referrers `which pipenv`
+```
+
+### Closures
+
+```sh
+nix-store -qR `which pipenv`
+
+nix-store -q --tree `which pipenv`
+
+nix-store -q --tree ~/.nix-profile
+```
+
+## Chapter 4. The Basics of the Language
+
+REF: [basics-of-language](https://nixos.org/guides/nix-pills/basics-of-language)  
+
 ## Repl
 
 ```sh
@@ -84,6 +171,7 @@ The following commands are available:
   :log <expr>   Show logs for a derivation
   :te [bool]    Enable, disable or toggle showing traces for errors
 
+:quit
 ```
 
 ## Chapter 6. Our First Derivation

@@ -56,11 +56,14 @@ nixos-generate -f iso -o ./out
 # generate ova
 nixos-generate -f virtualbox -o ./out
 
+# generate for hyperv
+nixos-generate -f install-iso-hyperv -o ./out
+
 # this works in virtual box
 nixos-generate -f install-iso -I nixpkgs=channel:nixos-22.11 -o ./out
 ```
 
-## Vagrant
+## VirtualBox
 
 ```sh
 # create
@@ -70,6 +73,21 @@ nixos-generate -f install-iso -I nixpkgs=channel:nixos-22.11 -o ./out
 ./destroy.sh nix-22.11-amd64 
 ```
 
+## HyperV
+
+You can build it manually using the UI or use Powershell.  
+
+```sh
+cd .\24_image_generators
+$vmname="newnix"
+New-VM -Name "$vmname" -Generation 1 -MemoryStartupBytes 2GB -NewVHDSizeBytes 10GB -BootDevice CD -NewVHDPath (".\out\" + $vmname + ".vhdx")
+$isopath=(get-item ".\\out\\nixos-24.05pre-git-x86_64-linux.iso").FullName
+Set-VMDvdDrive -VMName "$vmname" -Path $isopath 
+
+Start-Vm "${vmname}"
+
+Remove-Vm "${vmname}"
+```
 
 ## Docker
 

@@ -124,11 +124,7 @@ dive mynix:latest
 * Configuration Collection [here](https://nixos.wiki/wiki/Configuration_Collection)
 
 
-https://nix.dev/tutorials/nixos/nixos-configuration-on-vm.html
-https://github.com/Zaechus/nixos-config/tree/main
-
-https://gianarb.it/blog/how-i-started-with-nixos
-
-https://nixos.org/manual/nixos/stable/#sec-installation
-
-
+* https://nix.dev/tutorials/nixos/nixos-configuration-on-vm.html
+* https://github.com/Zaechus/nixos-config/tree/main
+* https://gianarb.it/blog/how-i-started-with-nixos
+* https://nixos.org/manual/nixos/stable/#sec-installation

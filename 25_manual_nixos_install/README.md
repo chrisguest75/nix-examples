@@ -37,11 +37,7 @@ Remove-Vm "${vmname}"
 setfont ter-v32n
 ```
 
-
-
 ## Resources
 
-
-https://nixos.org/manual/nixos/stable/#sec-installation
-
-https://github.com/NixOS/nixpkgs/issues/55332
+* https://nixos.org/manual/nixos/stable/#sec-installation
+* https://github.com/NixOS/nixpkgs/issues/55332

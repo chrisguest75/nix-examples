@@ -12,6 +12,7 @@ TODO:
 
 * Raspbian - https://nixos.wiki/wiki/NixOS_on_ARM/Raspberry_Pi_4
 * Vagrant basebox - https://nixos.wiki/wiki/Vagrant
+* https://github.com/nix-community/home-manager#words-of-warning
 
 ## Install
 
@@ -56,9 +57,6 @@ nixos-generate -f iso -o ./out
 # generate ova
 nixos-generate -f virtualbox -o ./out
 
-# generate for hyperv
-nixos-generate -f install-iso-hyperv -o ./out
-
 # this works in virtual box
 nixos-generate -f install-iso -I nixpkgs=channel:nixos-22.11 -o ./out
 ```
@@ -77,12 +75,25 @@ nixos-generate -f install-iso -I nixpkgs=channel:nixos-22.11 -o ./out
 
 You can build it manually using the UI or use Powershell.  
 
+Build the ISO.  
+
 ```sh
+# generate for hyperv
+nixos-generate -f install-iso-hyperv -o ./out
+```
+
+Create a machine.  
+
+```powershell
 cd .\24_image_generators
 $vmname="newnix"
+
 New-VM -Name "$vmname" -Generation 1 -MemoryStartupBytes 2GB -NewVHDSizeBytes 10GB -BootDevice CD -NewVHDPath (".\out\" + $vmname + ".vhdx")
 $isopath=(get-item ".\\out\\nixos-24.05pre-git-x86_64-linux.iso").FullName
+# attach iso
 Set-VMDvdDrive -VMName "$vmname" -Path $isopath 
+# attach network
+Get-VMNetworkAdapter -VMName "$vmname" | Connect-VMNetworkAdapter -SwitchName "Default Switch"
 
 Start-Vm "${vmname}"
 
@@ -90,6 +101,8 @@ Remove-Vm "${vmname}"
 ```
 
 ## Docker
+
+Build docker images using generate.  
 
 ```sh
 # build a docker image
@@ -107,3 +120,15 @@ dive mynix:latest
 * nix-channels [here](https://channels.nixos.org/)  
 * nix-community/nixos-generators repo [here](https://github.com/nix-community/nixos-generators)  
 * Configuration.nix docs [here](https://nixos.org/manual/nixos/stable/index.html#sec-configuration-syntax)  
+* Nix Starter Config [here](https://github.com/Misterio77/nix-starter-configs)
+* Configuration Collection [here](https://nixos.wiki/wiki/Configuration_Collection)
+
+
+https://nix.dev/tutorials/nixos/nixos-configuration-on-vm.html
+https://github.com/Zaechus/nixos-config/tree/main
+
+https://gianarb.it/blog/how-i-started-with-nixos
+
+https://nixos.org/manual/nixos/stable/#sec-installation
+
+

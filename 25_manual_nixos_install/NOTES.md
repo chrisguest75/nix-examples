@@ -1,4 +1,10 @@
+# NOTES
+
 TODO:
+
+* install pre-commit, commitizen
+* Get a typescript project compiling 
+* flatpak - spotify, slack, zoom, 1password
 
 ## Questions
 
@@ -16,12 +22,8 @@ TODO:
 	* https://wiki.nixos.org/wiki/Visual_Studio_Code
 * gh
 * ssh - https://jeppesen.io/git-commit-sign-nix-home-manager-ssh/
-* flatpak - spotify, slack, zoom, 1password
-* Get a typescript project compiling 
 * gnome extensions
 * both unstable and stable packages
-
-
 
 ## backup
 
@@ -51,8 +53,8 @@ home-manager
 
 nano ~/.config/home-manager/home.nix
 
-home-manager switch
 home-manager build
+home-manager switch
 
 git config --list --global
 

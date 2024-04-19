@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "bbenoist.nix"
+        "bbenoist.nix",
+        "vivaxy.vscode-conventional-commits"
     ]
 }

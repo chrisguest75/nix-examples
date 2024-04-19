@@ -2,6 +2,16 @@
 
 Demonstrate installing nixos.  
 
+## Contents
+
+- [MANUAL NIXOS INSTALL](#manual-nixos-install)
+  - [Contents](#contents)
+  - [Install](#install)
+  - [Laptop](#laptop)
+  - [Hyper-V](#hyper-v)
+    - [Configuring](#configuring)
+  - [Resources](#resources)
+
 ## Install
 
 REF: Downloads [here](https://nixos.org/download#nixos-more)  
@@ -10,7 +20,15 @@ REF: Downloads [here](https://nixos.org/download#nixos-more)
 curl -o ./out/latest-nixos-gnome-x86_64-linux.iso https://channels.nixos.org/nixos-23.11/latest-nixos-gnome-x86_64-linux.iso
 ```
 
+## Laptop
+
+Use [Etcher](https://etcher.balena.io/) to burn the ISO to a USB device.  
+
+## Hyper-V 
+
 Create a machine.  
+
+NOTE: When trying to install the GUI version of Nix it seems HyperV struggles to boot the mahine after intallation.  
 
 ```powershell
 cd .\25_manual_nixos_install
@@ -31,7 +49,7 @@ Start-Vm "${vmname}"
 Remove-Vm "${vmname}"
 ```
 
-## Configuring
+### Configuring
 
 ```sh
 setfont ter-v32n

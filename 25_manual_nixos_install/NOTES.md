@@ -2,6 +2,8 @@
 
 TODO:
 
+* wsl test
+* cleanup the PR
 * yarn test
 * chezmoi tools into configuration.
 * updating tools and garbage collecting.  
@@ -12,7 +14,8 @@ TODO:
 Questions
 
 * Installing as default software vs creating environments?
-
+* Do I need to change the mgm key to increase entropy of private keys? 
+* Change the pin with keys on there?
 
 ## Install 
 

@@ -2,6 +2,9 @@
 
 TODO:
 
+* yarn test
+* chezmoi tools into configuration.
+* updating tools and garbage collecting.  
 * flatpak - spotify, slack, zoom, 1password
 * configure tmux, screenrc, powerlevel10K
 * build python

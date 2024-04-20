@@ -6,9 +6,9 @@ TODO:
 * Get a typescript project compiling 
 * flatpak - spotify, slack, zoom, 1password
 
-## Questions
+Questions
 
-* default software vs creating environments?
+* Installing as default software vs creating environments?
 
 
 ## Install 
@@ -25,14 +25,28 @@ TODO:
 * gnome extensions
 * both unstable and stable packages
 
-## backup
+# Reconfigure
 
-cp -r /etc/nixos ~/code/scratch/notes
-cp ~/.config/home-manager/home.nix ~/code/scratch/notes 
+```sh
+cp ./25_manual_nixos_install/configs/nixos/configuration.nix /etc/nixos/configuration.nix 
 
-ll -a ~/code/scratch/notes
 
-## files
+
+sudo -i 
+nano /etc/nixos/configuration.nix 
+nixos-rebuild switch
+```
+
+## Backup
+
+```sh
+cp -r /etc/nixos ~/code/scratch/nix-examples/25_manual_nixos_install/configs/nixos
+cp ~/.config/home-manager/home.nix ~/code/scratch/nix-examples/25_manual_nixos_install/
+
+ll -a ~/code/scratch/nix-examples/25_manual_nixos_install/
+```
+
+## Files
 
 ls /etc/nixos
 
@@ -44,6 +58,7 @@ https://nixos.wiki/wiki/Flakes
 
 ## home manager
 
+```sh
 nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz home-manager
 nix-channel --update
 
@@ -57,35 +72,38 @@ home-manager build
 home-manager switch
 
 git config --list --global
+```
 
-# 
+# TMUX
 
+ctrl+b+arrow keys to switch panes
+
+```sh
 nix-shell -p git -p tmux
 
 tmux 
-ctrl+b+arrow keys to switch panes
+```
 
-# reconfigure
-
-sudo -i 
-nano /etc/nixos/configuration.nix 
-nixos-rebuild switch
 
 https://borretti.me/article/nixos-for-the-impatient#postinstall
 
 # starter configs
+
+
 https://github.com/Misterio77/nix-starter-configs
 
-
-
+```sh
 docker run hello-world
-
-
+```
 
 # other stuff
 
-https://syncthing.net/
-https://github.com/Mic92/sops-nix
-https://mynixos.com/
+* https://syncthing.net/
+* https://github.com/Mic92/sops-nix
+* https://mynixos.com/
 
 
+
+
+
+https://discourse.nixos.org/t/how-to-install-nvm-node-version-manager-in-nixos/20644/8

@@ -99,12 +99,12 @@
   programs.zsh = {
     enable = true;
     ohMyZsh = {
-	theme = "robbyrussell";
+	      theme = "robbyrussell";
         enable = true;
         plugins = [ "git" ];
     };
-	enableCompletion = true; 
-	promptInit = "";   
+	  enableCompletion = true; 
+	  promptInit = "";   
   };
 
 
@@ -116,14 +116,16 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-	vscode
-	tmux
-	git
+	      vscode
+	      tmux
+	      git
         oh-my-zsh
         zsh
         zsh-completions
- 	zsh-powerlevel10k
-	zsh-syntax-highlighting
+ 	      zsh-powerlevel10k
+	      zsh-syntax-highlighting
+        commitizen
+        pre-commit
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -16,9 +16,6 @@ cd home/chrisguest/code/scratch/nix-examples/26_home_manager/
 nixos-rebuild switch --flake .#w520-nixos
 ```
 
-```sh
-```
-
 ## Home Manager
 
 https://home-manager-options.extranix.com/
@@ -36,8 +33,7 @@ nano ~/.config/home-manager/home.nix
 cp ./configs/home.nix ~/.config/home-manager/home.nix
 cat ~/.config/home-manager/home.nix
 
-home-manager build
-home-manager switch
+home-manager switch --flake .#chrisguest@w520-nixos
 
 # verify the config is applied
 git config --list --global

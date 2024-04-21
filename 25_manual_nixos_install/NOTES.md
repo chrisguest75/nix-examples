@@ -2,9 +2,7 @@
 
 TODO:
 
-* wsl test
-* cleanup the PR
-* yarn test
+* yarn test override https://nixos-and-flakes.thiscute.world/development/intro
 * chezmoi tools into configuration.
 * updating tools and garbage collecting.  
 * flatpak - spotify, slack, zoom, 1password
@@ -34,13 +32,21 @@ Questions
 # Reconfigure
 
 ```sh
+# root user has own channels
+sudo -i
+nix-channel --list
+
 ls /etc/nixos
 
-cp ./25_manual_nixos_install/configs/nixos/configuration.nix /etc/nixos/configuration.nix 
-
+# editing in place
 sudo -i 
 nano /etc/nixos/configuration.nix 
 nixos-rebuild switch
+
+# building from a git repo
+sudo -i
+cd home/chrisguest/code/scratch/nix-examples/25_manual_nixos_install/
+nixos-rebuild switch -I nixos-config=$(pwd)/configs/nixos/configuration.nix
 ```
 
 ## Backup

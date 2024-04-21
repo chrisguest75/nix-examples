@@ -126,6 +126,14 @@
 	      zsh-syntax-highlighting
         commitizen
         pre-commit
+        just
+        gh
+        nmap
+        git-extras
+        hurl
+        jq
+        yq-go
+        dive
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

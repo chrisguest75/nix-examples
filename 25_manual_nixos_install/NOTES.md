@@ -3,17 +3,14 @@
 TODO:
 
 * yarn test override https://nixos-and-flakes.thiscute.world/development/intro
-* chezmoi tools into configuration.
 * updating tools and garbage collecting.  
 * flatpak - spotify, slack, zoom, 1password
-* configure tmux, screenrc, powerlevel10K
+* configure screenrc, powerlevel10K
 * build python
 
 Questions
 
 * Installing as default software vs creating environments?
-* Do I need to change the mgm key to increase entropy of private keys? 
-* Change the pin with keys on there?
 
 ## Install 
 
@@ -26,8 +23,7 @@ Questions
 	* https://wiki.nixos.org/wiki/Visual_Studio_Code
 * ssh - https://jeppesen.io/git-commit-sign-nix-home-manager-ssh/
 * gnome extensions
-* both unstable and stable packages
-* gh
+* both unstable and stable packages - install dive from unstable
 
 # Reconfigure
 
@@ -64,6 +60,8 @@ Windows Key + H - hides a window
 
 ## home manager
 
+https://home-manager-options.extranix.com/
+
 ```sh
 nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz home-manager
 nix-channel --update
@@ -74,10 +72,15 @@ home-manager
 
 nano ~/.config/home-manager/home.nix
 
+cp ./configs/home.nix ~/.config/home-manager/home.nix
+cat ~/.config/home-manager/home.nix
+
 home-manager build
 home-manager switch
 
+# verify the config is applied
 git config --list --global
+cat ~/.config/tmux/tmux.conf
 ```
 
 # TMUX
@@ -130,4 +133,4 @@ https://ghedam.at/15490/so-tell-me-about-nix
 https://nixos.wiki/wiki/Flakes
 
 
-
+hyprland https://gitlab.com/Zaney/zaneyos

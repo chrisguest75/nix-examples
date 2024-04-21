@@ -71,8 +71,59 @@
     enable = true;
     userName = "Chris Guest";
     userEmail = "chrisguest75@users.noreply.github.com";
+    extraConfig = {
+      core = {
+        pager = "cat";
+      };
+    };
   };
 
+  programs.tmux = {
+    enable = true;
+    extraConfig = '' 
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# loud or quiet?
+set -g visual-activity off
+set -g visual-bell off
+set -g visual-silence off
+setw -g monitor-activity off
+set -g bell-action none
+
+# Enable mouse mode (tmux 2.1 and above)
+set -g mouse on
+
+set-option -g status on
+set-option -g status-interval 1
+set-option -g status-justify centre
+
+set-option -g status-position bottom
+set-option -g status-style fg=colour136,bg=colour235
+set-option -g status-left-length 30
+set-option -g status-left-style default
+set-option -g status-left "#[fg=green]Session:#S #[fg=black]• #[default]"
+
+# start window numbering at 1
+set -g base-index 1
+
+# start pane numbering at 1
+set -g pane-base-index 1
+
+# Other examples:
+# set -g @plugin 'github_username/plugin_name'
+# set -g @plugin 'git@github.com/user/plugin'
+# set -g @plugin 'git@bitbucket.com/user/plugin'
+
+set -g @plugin 'nhdaly/tmux-scroll-copy-mode'
+set -g @plugin 'nhdaly/tmux-better-mouse-mode'
+
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run -b '~/.tmux/plugins/tpm/tpm'
+    '';
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

@@ -1,6 +1,6 @@
 # MANUAL NIXOS INSTALL
 
-Demonstrate installing nixos.  
+Demonstrate installing nixos from an ISO.  
 
 ## Contents
 
@@ -10,6 +10,7 @@ Demonstrate installing nixos.
   - [Laptop](#laptop)
   - [Hyper-V](#hyper-v)
     - [Configuring](#configuring)
+  - [Gnome](#gnome)
   - [Resources](#resources)
 
 ## Install
@@ -54,6 +55,10 @@ Remove-Vm "${vmname}"
 ```sh
 setfont ter-v32n
 ```
+
+## Gnome
+
+Windows Key + H - hides a window  
 
 ## Resources
 

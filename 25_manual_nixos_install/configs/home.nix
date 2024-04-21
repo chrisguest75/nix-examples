@@ -17,11 +17,11 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-    pkgs.wget
-    pkgs.git
+    wget
+    git
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -121,7 +121,7 @@ set -g @plugin 'nhdaly/tmux-better-mouse-mode'
 
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run -b '~/.tmux/plugins/tpm/tpm'
+# run -b '~/.tmux/plugins/tpm/tpm'
     '';
   };
 

@@ -138,3 +138,7 @@ hyprland https://gitlab.com/Zaney/zaneyos
 
 
 https://discourse.nixos.org/t/can-i-specify-an-unstable-package-using-home-manager/26447/8
+
+
+* NixOS & Flakes Book An unofficial book for beginners [here](https://nixos-and-flakes.thiscute.world/)
+https://github.com/Misterio77/nix-starter-configs

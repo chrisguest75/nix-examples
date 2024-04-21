@@ -199,6 +199,7 @@
         jq
         yq-go
         dive
+        skaffold
   ];
 
   virtualisation.docker.enable = true;

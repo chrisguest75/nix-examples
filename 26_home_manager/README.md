@@ -4,7 +4,19 @@
 ## Configuration 
 
 ```sh
+# root user has own channels
+sudo -i
+nix-channel --list
+
+ls /etc/nixos
+
+# building from a git repo
+sudo -i
+cd home/chrisguest/code/scratch/nix-examples/26_home_manager/
 nixos-rebuild switch --flake .#w520-nixos
+```
+
+```sh
 ```
 
 ## Home Manager

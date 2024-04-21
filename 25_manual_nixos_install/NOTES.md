@@ -6,7 +6,7 @@ TODO:
 * updating tools and garbage collecting.  
 * flatpak - spotify, slack, zoom, 1password
 * configure screenrc, powerlevel10K
-* build python
+* gnome extensions
 
 Questions
 
@@ -22,7 +22,7 @@ Questions
 	* https://wiki.nixos.org/wiki/Docker
 	* https://wiki.nixos.org/wiki/Visual_Studio_Code
 * ssh - https://jeppesen.io/git-commit-sign-nix-home-manager-ssh/
-* gnome extensions
+* build python - https://github.com/chrisguest75/python_examples/tree/main/22_nix
 * both unstable and stable packages - install dive from unstable
 
 # Reconfigure
@@ -134,3 +134,7 @@ https://nixos.wiki/wiki/Flakes
 
 
 hyprland https://gitlab.com/Zaney/zaneyos
+
+
+
+https://discourse.nixos.org/t/can-i-specify-an-unstable-package-using-home-manager/26447/8

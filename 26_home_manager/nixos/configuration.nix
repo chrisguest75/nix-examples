@@ -65,7 +65,7 @@
   # FIXME: Add the rest of your current configuration
 
   # TODO: Set your hostname
-  networking.hostName = "nixos";
+  networking.hostName = "w520-nixos";
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.grub.enable = true;

@@ -1,5 +1,14 @@
 # HOME MANAGER
 
+
+## Configuration 
+
+```sh
+nixos-rebuild switch --flake .#w520-nixos
+```
+
+## Home Manager
+
 https://home-manager-options.extranix.com/
 
 ```sh

@@ -49,8 +49,8 @@
   home.packages = with pkgs; [ 
     lshw
     ffmpeg_7-full
-    nvtopPackages.intel
-    nvtopPackages.nvidia
+    #nvtopPackages.intel
+    #nvtopPackages.nvidia
   ];
 
   # Enable home-manager and git
@@ -139,10 +139,10 @@ set -g @plugin 'nhdaly/tmux-better-mouse-mode'
       "org/gnome/desktop/peripherals/touchpad" = {
         tap-to-click=false;
         two-finger-scrolling-enabled=true;
-        natural-scroll=true;
+        natural-scroll=false;
       };
       "org/gnome/desktop/peripherals/mouse" = {
-        natural-scroll=true;
+        natural-scroll=false;
       };
     };
 

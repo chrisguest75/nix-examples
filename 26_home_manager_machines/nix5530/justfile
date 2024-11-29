@@ -1,0 +1,17 @@
+set dotenv-load := true
+
+# default lists actions
+default:
+  @just -f example.justfile --list
+
+home: 
+  #!/usr/bin/env bash
+  home-manager switch --flake .#chrisguest@nix5530-nixos
+
+config: 
+  #!/usr/bin/env bash
+  nixos-rebuild switch --flake .#nix5530-nixos
+
+  
+
+

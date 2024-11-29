@@ -6,10 +6,13 @@ Demonstrate a config for a machine.
 
 TODO:
 
-* GPU drivers?  p2000
 * hyprland
 * atarist emulator
 * vpn??
+
+NOTES:
+
+* The legacy 390 driver for nvidia do not install
 
 ## Configuration
 
@@ -33,7 +36,7 @@ nixos-rebuild switch --flake .#nix5530-nixos
 
 ## Home Manager
 
-Has to be run as user.  
+Has to be run as user.  After installed for first time use `just home`  
 
 ```sh
 nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz home-manager
@@ -50,6 +53,8 @@ git config --list --global
 cat ~/.config/tmux/tmux.conf
 ```
 
+export NIXPKGS_ALLOW_BROKEN=1
+
 ## TMUX
 
 ctrl+b+arrow keys to switch panes
@@ -62,4 +67,7 @@ tmux
 
 ## Resources
 
-* https://heywoodlh.io/nixos-gnome-settings-and-keyboard-shortcuts
+* NixOS: Managing GNOME Keyboard Shortcuts and Settings with Home Manager [here](https://heywoodlh.io/nixos-gnome-settings-and-keyboard-shortcuts)
+* How do i install the stupid proprietary nvidia drivers  [here](https://www.reddit.com/r/NixOS/comments/18n21n8/how_do_i_install_the_stupid_proprietary_nvidia/?rdt=59192)
+* References to hardware.opengl.driSupport need to be removed [here](https://github.com/NixOS/nixos-hardware/issues/996#issuecomment-2183266924)
+* What's a legacy driver? [here](https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/)

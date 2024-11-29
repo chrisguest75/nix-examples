@@ -38,7 +38,7 @@
     };
   };
 
-  # TODO: Set your username
+  # Set your username
   home = {
     username = "chrisguest";
     homeDirectory = "/home/chrisguest";
@@ -46,7 +46,12 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
+  home.packages = with pkgs; [ 
+    lshw
+    ffmpeg_7-full
+    nvtopPackages.intel
+    nvtopPackages.nvidia
+  ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

@@ -59,3 +59,7 @@ nix-shell -p git -p tmux
 
 tmux 
 ```
+
+## Resources
+
+* https://heywoodlh.io/nixos-gnome-settings-and-keyboard-shortcuts

@@ -111,6 +111,37 @@ set -g @plugin 'nhdaly/tmux-better-mouse-mode'
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
+  dconf.settings = {
+      "org/gnome/desktop/interface" = {
+        clock-show-seconds = true;
+        clock-show-weekday = true;
+        color-scheme = "prefer-dark";
+        enable-hot-corners = false;
+        font-antialiasing = "grayscale";
+        font-hinting = "slight";
+        gtk-theme = "Nordic";
+        toolkit-accessibility = true;
+      };
+      "org/gnome/desktop/wm/preferences" = {
+        button-layout = "close,minimize,maximize:appmenu";
+        num-workspaces = 10;
+      };
+      "org/gnome/shell/extensions/pop-shell" = {
+        focus-right = "disabled";
+        tile-by-default = true;
+        tile-enter = "disabled";
+      };
+      "org/gnome/desktop/peripherals/touchpad" = {
+        tap-to-click=false;
+        two-finger-scrolling-enabled=true;
+        natural-scroll=true;
+      };
+      "org/gnome/desktop/peripherals/mouse" = {
+        natural-scroll=true;
+      };
+    };
+
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.05";
 }

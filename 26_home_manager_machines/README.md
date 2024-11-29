@@ -15,7 +15,9 @@ ls /etc/nixos
 
 # building from a git repo
 sudo -i
-cd home/chrisguest/code/scratch/nix-examples/26_home_manager_machines/
+cd /home/chrisguest/code/scratch/nix-examples/26_home_manager_machines/nix5530
+export NIXPKGS_ALLOW_UNFREE=1
+nix-shell -p git -p gh -p vscode
 nixos-rebuild switch --flake .#nix5530-nixos
 ```
 

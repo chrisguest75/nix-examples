@@ -17,7 +17,8 @@ ls /etc/nixos
 sudo -i
 cd /home/chrisguest/code/scratch/nix-examples/26_home_manager_machines/nix5530
 export NIXPKGS_ALLOW_UNFREE=1
-nix-shell -p git -p gh -p vscode
+nix-shell -p git --extra-experimental-features nix-command --extra-experimental-features flakes
+
 nixos-rebuild switch --flake .#nix5530-nixos
 ```
 

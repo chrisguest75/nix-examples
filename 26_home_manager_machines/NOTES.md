@@ -43,10 +43,15 @@ https://nixos.wiki/wiki/Home_Manager
 * Installed gnome with disk encryption
 * ```nix-shell -p git```
 * Use firefox
-* export NIXPKGS_ALLOW_UNFREE=1
+* 
 * nix-env -iA nixos.vscode
 
-nix-shell -p git -p gh -p vscode
+export NIXPKGS_ALLOW_UNFREE=1
+nix-shell -p git -p gh -p vscode --extra-experimental-features nix-command --extra-experimental-features flakes
+
+
+ -p home-manager
 
 nixos-generate-config
 
+home-manager switch --flake .#chrisguest@nix5530-nixos --extra-experimental-features nix-command --extra-experimental-features flakes

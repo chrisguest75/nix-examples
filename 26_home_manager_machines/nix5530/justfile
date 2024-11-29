@@ -4,10 +4,12 @@ set dotenv-load := true
 default:
   @just -f example.justfile --list
 
+# can be applied anytime
 home: 
   #!/usr/bin/env bash
   home-manager switch --flake .#chrisguest@nix5530-nixos
 
+# requires sudo -i
 config: 
   #!/usr/bin/env bash
   nixos-rebuild switch --flake .#nix5530-nixos

@@ -53,8 +53,6 @@ git config --list --global
 cat ~/.config/tmux/tmux.conf
 ```
 
-export NIXPKGS_ALLOW_BROKEN=1
-
 ## TMUX
 
 ctrl+b+arrow keys to switch panes
@@ -63,6 +61,16 @@ ctrl+b+arrow keys to switch panes
 nix-shell -p git -p tmux
 
 tmux 
+```
+
+## Flatpak
+
+```sh
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+flatpak update
+
+flatpak install org.videolan.VLC 
 ```
 
 ## Resources

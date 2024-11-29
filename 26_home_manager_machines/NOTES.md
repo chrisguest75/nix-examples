@@ -47,3 +47,6 @@ https://nixos.wiki/wiki/Home_Manager
 * nix-env -iA nixos.vscode
 
 nix-shell -p git -p gh -p vscode
+
+nixos-generate-config
+

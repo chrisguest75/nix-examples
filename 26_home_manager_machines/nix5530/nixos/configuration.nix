@@ -134,6 +134,7 @@
     isNormalUser = true;
     description = "Chris Guest";
     extraGroups = [ "networkmanager" "wheel" "docker"];
+    shell = pkgs.zsh;
     packages = with pkgs; [
     #  thunderbird
     ];

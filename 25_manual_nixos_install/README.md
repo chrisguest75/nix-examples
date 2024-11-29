@@ -23,7 +23,12 @@ curl -o ./out/latest-nixos-gnome-x86_64-linux.iso https://channels.nixos.org/nix
 
 ## Laptop
 
-Use [Etcher](https://etcher.balena.io/) to burn the ISO to a USB device.  
+Use [Etcher](https://etcher.balena.io/) to burn the ISO to a USB device. Or use a Ventoy ISO loader.   
+
+### Troubleshooting
+
+- UEFI USB Bootable [UEFI](https://en.wikipedia.org/wiki/UEFI).  
+- BIOS Settings; Disable secure boot, Turn off RAID and switch to [ACPI](https://en.wikipedia.org/wiki/ACPI).  
 
 ## Hyper-V 
 

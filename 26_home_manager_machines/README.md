@@ -4,6 +4,8 @@ Demonstrate a config for a machine.
 
 - NixOS & Flakes Book An unofficial book for beginners [here](https://nixos-and-flakes.thiscute.world/)
 
+REF: Add software from unstable example [04_installing_software/README.md](../04_installing_software/README.md)  
+
 ## Machines
 
 - [nix5530](./nix5530/README.md)

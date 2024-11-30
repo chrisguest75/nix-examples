@@ -54,6 +54,8 @@
     deluge
     diffoci
     diffoscope
+    mame
+    hatari
     #nvtopPackages.intel
     #nvtopPackages.nvidia
   ];

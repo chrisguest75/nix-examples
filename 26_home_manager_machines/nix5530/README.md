@@ -6,6 +6,7 @@ Demonstrate a config for a machine.
 
 TODO:
 
+* gnome extensions are still not working
 * hyprland
 * atarist emulator
 * vpn??

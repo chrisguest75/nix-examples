@@ -49,6 +49,8 @@
   home.packages = with pkgs; [ 
     lshw
     ffmpeg_7-full
+    gnomeExtensions.resource-monitor
+    gnome.gnome-tweaks
     #nvtopPackages.intel
     #nvtopPackages.nvidia
   ];
@@ -117,6 +119,16 @@ set -g @plugin 'nhdaly/tmux-better-mouse-mode'
   systemd.user.startServices = "sd-switch";
 
   dconf.settings = {
+      "org/gnome/shell" = {
+        disable-user-extensions = false; # enables user extensions
+        enabled-extensions = [
+          "resource-monitor"
+        ];
+      };    
+      "org/gnome/shell/extensions/hidetopbar" = {
+        enable-active-window = false;
+        enable-intellihide = false; 
+      };
       "org/gnome/desktop/interface" = {
         clock-show-seconds = true;
         clock-show-weekday = true;

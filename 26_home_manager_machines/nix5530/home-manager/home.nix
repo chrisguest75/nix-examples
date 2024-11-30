@@ -48,12 +48,20 @@
   # programs.neovim.enable = true;
   home.packages = with pkgs; [ 
     lshw
+    zip
+    unzip
+    file
+
     ffmpeg_7-full
+
     gnomeExtensions.resource-monitor
     gnome.gnome-tweaks
+    
     deluge
+    
     diffoci
     diffoscope
+    
     mame
     hatari
     fsuae

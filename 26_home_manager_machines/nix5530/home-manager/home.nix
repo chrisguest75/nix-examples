@@ -56,6 +56,7 @@
     diffoscope
     mame
     hatari
+    fsuae
     #nvtopPackages.intel
     #nvtopPackages.nvidia
   ];

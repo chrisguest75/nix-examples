@@ -51,6 +51,8 @@
     ffmpeg_7-full
     gnomeExtensions.resource-monitor
     gnome.gnome-tweaks
+    deluge
+    diffoci
     #nvtopPackages.intel
     #nvtopPackages.nvidia
   ];

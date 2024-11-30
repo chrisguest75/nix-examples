@@ -47,11 +47,6 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [ 
-    lshw
-    zip
-    unzip
-    file
-
     ffmpeg_7-full
 
     gnomeExtensions.resource-monitor
@@ -65,6 +60,7 @@
     mame
     hatari
     fsuae
+    
     #nvtopPackages.intel
     #nvtopPackages.nvidia
   ];

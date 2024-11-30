@@ -6,12 +6,26 @@ Demonstrate a config for a machine.
 
 TODO:
 
+* get nvidia container toolkit working...
 * hyprland
 * vpn??
 
 NOTES:
 
 * The legacy 390 driver for nvidia do not install
+
+## Use just
+
+```sh
+# home.nix
+cd 26_home_manager_machines/nix5530/
+just home 
+
+# configuration.nix
+sudo -i 
+cd 26_home_manager_machines/nix5530/
+just config
+```
 
 ## Configuration
 

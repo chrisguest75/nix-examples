@@ -53,6 +53,7 @@
     gnome.gnome-tweaks
     deluge
     diffoci
+    diffoscope
     #nvtopPackages.intel
     #nvtopPackages.nvidia
   ];

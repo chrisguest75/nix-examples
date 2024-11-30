@@ -6,9 +6,7 @@ Demonstrate a config for a machine.
 
 TODO:
 
-* gnome extensions are still not working
 * hyprland
-* atarist emulator
 * vpn??
 
 NOTES:
@@ -82,3 +80,4 @@ flatpak run org.videolan.VLC
 * How do i install the stupid proprietary nvidia drivers  [here](https://www.reddit.com/r/NixOS/comments/18n21n8/how_do_i_install_the_stupid_proprietary_nvidia/?rdt=59192)
 * References to hardware.opengl.driSupport need to be removed [here](https://github.com/NixOS/nixos-hardware/issues/996#issuecomment-2183266924)
 * What's a legacy driver? [here](https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/)
+* How to Install and Manage GNOME Shell Extension [here](https://www.baeldung.com/linux/gnome-shell-extension)

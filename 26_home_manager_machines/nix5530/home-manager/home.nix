@@ -48,6 +48,7 @@
   # programs.neovim.enable = true;
   home.packages = with pkgs; [ 
     ffmpeg_7-full
+    yt-dlp
 
     gnomeExtensions.resource-monitor
     gnome.gnome-tweaks

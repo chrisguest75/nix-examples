@@ -63,6 +63,13 @@
     fsuae
     
     keepassxc
+
+    imagemagick
+    grafx2
+    tiled
+    pixelorama
+    
+
     #nvtopPackages.intel
     #nvtopPackages.nvidia
   ];

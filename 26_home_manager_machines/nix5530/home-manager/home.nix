@@ -62,6 +62,7 @@
     hatari
     fsuae
     
+    keepassxc
     #nvtopPackages.intel
     #nvtopPackages.nvidia
   ];

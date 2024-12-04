@@ -68,8 +68,8 @@
     grafx2
     tiled
     pixelorama
-    
 
+    mc
     #nvtopPackages.intel
     #nvtopPackages.nvidia
   ];

@@ -70,6 +70,13 @@
     pixelorama
 
     mc
+
+    gnumake
+
+    python312
+
+    # not working or clashing
+    #imhex
     #nvtopPackages.intel
     #nvtopPackages.nvidia
   ];

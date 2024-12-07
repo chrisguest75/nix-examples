@@ -70,11 +70,13 @@
     pixelorama
 
     mc
+    unixtools.xxd
 
     gnumake
 
     python312
 
+    chromium
     # not working or clashing
     #imhex
     #nvtopPackages.intel

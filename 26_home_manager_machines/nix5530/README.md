@@ -79,13 +79,18 @@ tmux
 ## Flatpak
 
 ```sh
+# add flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 flatpak update
 
+# vlc
 flatpak install org.videolan.VLC 
-
 flatpak run org.videolan.VLC 
+
+# imhex
+flatpak search ImHex   
+flatpak install net.werwolv.ImHex   
 ```
 
 ## Resources

@@ -7,6 +7,12 @@ TODO:
 * Find the graph
 * The nix image is so big because it is not currently multistage.  
 
+## Use NodeVersion
+
+```sh
+nix-shell -p nodejs_22
+```
+
 ## Build Image
 
 Install `node16`.  

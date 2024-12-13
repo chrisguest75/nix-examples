@@ -49,6 +49,7 @@
   home.packages = with pkgs; [ 
     ffmpeg_7-full
     yt-dlp
+    vlc
 
     gnomeExtensions.resource-monitor
     gnome.gnome-tweaks

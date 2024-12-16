@@ -6,7 +6,6 @@ Demonstrate a config for a machine.
 
 TODO:
 
-* get nvidia container toolkit working... https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
 * hyprland
 * vpn??
 * Add instructions on upgrading packages like vscode
@@ -15,6 +14,7 @@ TODO:
 NOTES:
 
 * The legacy 390 drivers for nvidia do not install.
+* To test GPU use [chrisguest75/docker_examples/blob/master/A2_gpu/README.md](https://github.com/chrisguest75/docker_examples/blob/master/A2_gpu/README.md)  
 
 ## Use just
 

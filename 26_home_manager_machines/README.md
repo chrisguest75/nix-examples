@@ -13,7 +13,6 @@ REF: Add software from unstable example [04_installing_software/README.md](../04
 
 ## Resources
 
-- https://nix-community.github.io/home-manager/index.xhtml#ch-introduction
-- https://sanatanhalder.com/blog/nixos-configuration/
-- https://nixos.wiki/wiki/Home_Manager
-
+- Introduction to Home Manager [here](https://nix-community.github.io/home-manager/index.xhtml#ch-introduction)
+- NixOS Configuration [here](https://sanatanhalder.com/blog/nixos-configuration/)
+- Home Manager [here](https://nixos.wiki/wiki/Home_Manager)

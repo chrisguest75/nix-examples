@@ -9,10 +9,12 @@ TODO:
 * get nvidia container toolkit working... https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
 * hyprland
 * vpn??
+* Add instructions on upgrading packages like vscode
+* Add instructions on how to upgrade os.
 
 NOTES:
 
-* The legacy 390 driver for nvidia do not install
+* The legacy 390 drivers for nvidia do not install.
 
 ## Use just
 
@@ -27,7 +29,7 @@ cd 26_home_manager_machines/nix5530/
 just config
 ```
 
-## Configuration
+## Configuration.nix
 
 Has to be run using sudo.
 
@@ -68,7 +70,7 @@ cat ~/.config/tmux/tmux.conf
 
 ## TMUX
 
-ctrl+b+arrow keys to switch panes
+`ctrl+b+arrow` keys to switch panes
 
 ```sh
 nix-shell -p git -p tmux
@@ -77,6 +79,8 @@ tmux
 ```
 
 ## Flatpak
+
+Install flatpak for getting software not available as a package or a working version.  
 
 ```sh
 # add flatpak
@@ -100,3 +104,5 @@ flatpak install net.werwolv.ImHex
 * References to hardware.opengl.driSupport need to be removed [here](https://github.com/NixOS/nixos-hardware/issues/996#issuecomment-2183266924)
 * What's a legacy driver? [here](https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/)
 * How to Install and Manage GNOME Shell Extension [here](https://www.baeldung.com/linux/gnome-shell-extension)
+* Installing the NVIDIA Container Toolkit [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+* nvidia container toolkit does not work on Docker but works in Podman [here](https://github.com/NixOS/nixpkgs/issues/337873)

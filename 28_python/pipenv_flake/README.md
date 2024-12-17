@@ -85,3 +85,4 @@ pipenv install pyyaml python-json-logger python-dotenv
 * Flakes Output Schema [here](https://nixos.wiki/wiki/Flakes#Output_schema)
 * Development workflow with Nix [here](https://ayats.org/blog/nix-workflow/)
 * Locally excluding nix flakes when using nix independenly of upstream [here](https://discourse.nixos.org/t/locally-excluding-nix-flakes-when-using-nix-independenly-of-upstream/16480)
+* Poetry2Nix - can not get a flake to work  https://www.reddit.com/r/NixOS/comments/16cfdag/poetry2nix_can_not_get_a_flake_to_work/?rdt=48743

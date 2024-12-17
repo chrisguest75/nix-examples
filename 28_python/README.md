@@ -10,6 +10,7 @@ NOTES:
 
 TODO:
 
+* using numpy breaks because it cannot find libstd++
 * git
 * code
 * bashrc or zshrc

@@ -7,10 +7,10 @@ REF: [github.com/chrisguest75/python_examples/22_nix/README.md](https://github.c
 NOTES:
 
 * The flake file has to be in the git index (committed or staged) before you can enter develop.
+* Packages like `numpy` use precompiled binaries.  
 
 TODO:
 
-* using numpy breaks because it cannot find libstd++
 * git
 * code
 * bashrc or zshrc

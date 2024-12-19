@@ -9,6 +9,11 @@ Demonstrates:
 * argument parsing
 * docstrings
 
+NOTES:
+
+* `numpy` installs precompiled binaries that link to glib expecting FHS compliant filesystem. We have to use `nix-ld` to map the paths from `nix-store`.  
+* We map `NIX_LD_LIBRARY_PATH` to `LD_LIBRARY_PATH`.  
+
 ## Development using nix
 
 Open a pure shell and install packages
@@ -29,8 +34,16 @@ nix flake check
 
 nix develop --impure --command bash -c 'python --version'
 
-# enter the flake
-nix develop
+# enter the flake - we have to use impure for nix-ld
+nix develop --impure
+
+zsh
+
+# numpy will fail
+just start
+strace -f just start 2>&1 | grep libstd
+
+env | sort | grep NIX_
 ```
 
 ## Start
@@ -86,3 +99,8 @@ pipenv install pyyaml python-json-logger python-dotenv
 * Development workflow with Nix [here](https://ayats.org/blog/nix-workflow/)
 * Locally excluding nix flakes when using nix independenly of upstream [here](https://discourse.nixos.org/t/locally-excluding-nix-flakes-when-using-nix-independenly-of-upstream/16480)
 * Poetry2Nix - can not get a flake to work  https://www.reddit.com/r/NixOS/comments/16cfdag/poetry2nix_can_not_get_a_flake_to_work/?rdt=48743
+* https://github.com/mcdonc/.nixconfig/blob/e7885ad18b7980f221e59a21c91b8eb02795b541/videos/pydev/script.rst
+* https://github.com/nix-community/nix-ld
+* Nix-ld: A clean solution for issues with pre-compiled executables on NixOS [here](https://blog.thalheim.io/2022/12/31/nix-ld-a-clean-solution-for-issues-with-pre-compiled-executables-on-nixos/)
+* Python development environments with Nix [here](https://wiki.nixos.org/wiki/Python#Running_compiled_libraries)
+* https://github.com/GuillaumeDesforges/fix-python/

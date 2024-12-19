@@ -9,6 +9,7 @@ import os
 import platform
 import importlib.metadata
 from importlib.metadata import distributions
+import numpy
 
 def log_uncaught_exceptions(exc_type, exc_value, exc_traceback):
     """catches unhandled exceptions and logs them"""

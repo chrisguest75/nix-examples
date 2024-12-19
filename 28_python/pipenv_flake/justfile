@@ -1,0 +1,21 @@
+set dotenv-load := true
+
+# default lists actions
+default:
+  @just -f justfile --list
+
+clean:
+  rm -rf ./.venv || true
+  rm Pipfile.lock || true
+
+install:
+  #!/usr/bin/env bash
+  export PIPENV_IGNORE_VIRTUALENVS=1
+  export PIPENV_VENV_IN_PROJECT=1
+  pipenv install --dev --verbose
+
+start:
+  #!/usr/bin/env bash
+  export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH
+  pipenv run start:test
+

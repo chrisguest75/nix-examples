@@ -71,6 +71,7 @@
     pixelorama
 
     mc
+    gettext
     unixtools.xxd
 
     gnumake

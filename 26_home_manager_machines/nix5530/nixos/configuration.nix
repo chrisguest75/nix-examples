@@ -198,7 +198,6 @@
         zip
         unzip
         file
-        #nvidia-container-toolkit
 	      vscode
 	      tmux
 	      git
@@ -218,6 +217,7 @@
         yq-go
         dive
         skaffold
+        
   ];
 
   services.flatpak.enable = true;

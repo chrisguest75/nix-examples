@@ -79,6 +79,9 @@
     python312
 
     chromium
+
+    gpu-viewer
+
     # not working or clashing
     #imhex
     #nvtopPackages.intel

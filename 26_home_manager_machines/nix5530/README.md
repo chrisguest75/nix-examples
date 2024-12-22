@@ -10,6 +10,7 @@ TODO:
 * vpn??
 * Add instructions on upgrading packages like vscode
 * Add instructions on how to upgrade os.
+* Switch to nvidia GPU for firefox, chromium and vlc.
 
 NOTES:
 

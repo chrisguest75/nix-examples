@@ -28,6 +28,9 @@ just home
 sudo -i 
 cd 26_home_manager_machines/nix5530/
 just config
+
+# open tmux
+just monitor-gpu
 ```
 
 ## Configuration.nix

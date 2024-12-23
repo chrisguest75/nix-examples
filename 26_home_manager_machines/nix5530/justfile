@@ -2,7 +2,7 @@ set dotenv-load := true
 
 # default lists actions
 default:
-  @just -f example.justfile --list
+  @just -f {{ source_file() }} --list
 
 # can be applied anytime
 home: 
@@ -14,6 +14,7 @@ config:
   #!/usr/bin/env bash
   nixos-rebuild switch --flake .#nix5530-nixos
 
-  
-
+monitor-gpu:
+  #!/usr/bin/env bash
+  tmuxinator start -p ./monitor-gpu.yaml
 

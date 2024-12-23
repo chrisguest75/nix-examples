@@ -2,7 +2,7 @@ set dotenv-load := true
 
 # default lists actions
 default:
-  @just -f justfile --list
+  @just -f {{ source_file() }} --list
 
 clean:
   rm -rf ./.venv || true

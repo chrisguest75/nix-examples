@@ -50,7 +50,8 @@
     ffmpeg_7-full
     yt-dlp
     vlc
-
+    aegisub
+    
     gnomeExtensions.resource-monitor
     gnome.gnome-tweaks
     
@@ -84,6 +85,7 @@
 
     tmuxinator
     htop
+
     # not working or clashing
     #imhex
     #nvtopPackages.intel

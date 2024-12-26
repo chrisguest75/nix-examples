@@ -51,7 +51,7 @@
     yt-dlp
     vlc
     aegisub
-    
+
     gnomeExtensions.resource-monitor
     gnome.gnome-tweaks
     
@@ -78,6 +78,7 @@
     gnumake
 
     python312
+    cookiecutter
 
     chromium
 

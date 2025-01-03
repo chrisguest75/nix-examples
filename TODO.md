@@ -1,5 +1,6 @@
 # 📝 TODO
 
+* Not working in trial mode beyond compare - NIXPKGS_ALLOW_UNFREE=1 nix-shell -p bcompare --impure
 * Build a custom nix package https://nixos.org/guides/nix-pills/index.html
 * Understand the Nix language and API
 * Understand if vulnerability detectors are just not seeing the issues.  What is vulnix?

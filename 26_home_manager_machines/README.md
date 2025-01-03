@@ -8,6 +8,7 @@ REF: Add software from unstable example [04_installing_software/README.md](../04
 
 ## Machines
 
+- [bigmonga](./bigmonga/README.md)
 - [nix5530](./nix5530/README.md)
 - [w520-nixos](./w520-nixos/README.md)
 

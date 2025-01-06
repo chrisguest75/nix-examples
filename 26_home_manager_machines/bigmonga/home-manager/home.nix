@@ -51,9 +51,6 @@
     yt-dlp
     vlc
     aegisub
-
-    gnomeExtensions.resource-monitor
-    gnome.gnome-tweaks
     
     deluge
     

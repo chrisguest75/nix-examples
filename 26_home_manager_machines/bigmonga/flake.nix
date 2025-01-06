@@ -21,6 +21,7 @@
     self,
     nixpkgs,
     home-manager,
+    just,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -29,7 +30,7 @@
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       # FIXME replace with your hostname
-      nix5530-nixos = nixpkgs.lib.nixosSystem {
+      bigmonga-nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         # > Our main nixos configuration file <
         modules = [./nixos/configuration.nix];

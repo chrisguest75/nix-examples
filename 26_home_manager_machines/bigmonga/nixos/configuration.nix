@@ -60,10 +60,18 @@
   };
   
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sdb";
+  boot.loader.grub.useOSProber = true;
 
-  boot.initrd.luks.devices."luks-877551de-9e80-4d3e-81fa-0e74a24b1367".device = "/dev/disk/by-uuid/877551de-9e80-4d3e-81fa-0e74a24b1367";
+  boot.initrd.luks.devices."luks-80a05396-70ba-473c-8897-0aa44c962a43".device = "/dev/disk/by-uuid/80a05396-70ba-473c-8897-0aa44c962a43";
+  # Setup keyfile
+  boot.initrd.secrets = {
+    "/boot/crypto_keyfile.bin" = null;  
+  boot.loader.grub.enableCryptodisk = true;
+
+  boot.initrd.luks.devices."luks-d19f8187-fbbf-4645-9f7e-79975e1a76c3".keyFile = "/boot/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-80a05396-70ba-473c-8897-0aa44c962a43".keyFile = "/boot/crypto_keyfile.bin";
   networking.hostName = "bigmonga"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -93,11 +101,12 @@
   };
 
   # Enable the X11 windowing system.
+  # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # Enable the KDE Plasma Desktop Environment.
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -137,6 +146,8 @@
     extraGroups = [ "networkmanager" "wheel" "docker"];
     shell = pkgs.zsh;
     packages = with pkgs; [
+
+      kdePackages.kate
     #  thunderbird
     ];
   };
@@ -195,6 +206,7 @@
   #  wget
         lshw
         zip
+        kdePackages.kate
         unzip
         file
 	      vscode

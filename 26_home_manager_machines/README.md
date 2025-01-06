@@ -6,6 +6,20 @@ Demonstrate a config for a machine.
 
 REF: Add software from unstable example [04_installing_software/README.md](../04_installing_software/README.md)  
 
+## Prepping
+
+You've installed a new machine. Now what?
+
+```sh
+mkdir ./Code/scratch
+NIXPKGS_ALLOW_UNFREE=1 nix-shell -p just git gh vscode
+
+gh repo clone nix-examples
+
+mkdir -p ./26_home_manager_machines/bigmonga/nixos
+cp -r /etc/nixos ./26_home_manager_machines/bigmonga/
+```
+
 ## Machines
 
 - [bigmonga](./bigmonga/README.md)

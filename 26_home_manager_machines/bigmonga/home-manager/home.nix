@@ -83,7 +83,6 @@
 
     tmuxinator
     htop
-
     # not working or clashing
     #imhex
     #nvtopPackages.intel

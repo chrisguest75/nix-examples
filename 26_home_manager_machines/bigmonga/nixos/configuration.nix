@@ -68,6 +68,7 @@
   # Setup keyfile
   boot.initrd.secrets = {
     "/boot/crypto_keyfile.bin" = null;  
+  };
   boot.loader.grub.enableCryptodisk = true;
 
   boot.initrd.luks.devices."luks-d19f8187-fbbf-4645-9f7e-79975e1a76c3".keyFile = "/boot/crypto_keyfile.bin";
@@ -146,7 +147,6 @@
     extraGroups = [ "networkmanager" "wheel" "docker"];
     shell = pkgs.zsh;
     packages = with pkgs; [
-
       kdePackages.kate
     #  thunderbird
     ];

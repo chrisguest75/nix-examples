@@ -21,7 +21,6 @@
     self,
     nixpkgs,
     home-manager,
-    just,
     ...
   } @ inputs: let
     inherit (self) outputs;

@@ -10,6 +10,10 @@ NOTES:
 
 Example of installing drivers for nvidia GPU [26_home_manager_machines/nix5530/nixos/nvidia.nix](../26_home_manager_machines/nix5530/nixos/nvidia.nix)
 
+## Browsers
+
+Open `chrome://gpu/` in chrome.  
+
 ## Monitoring
 
 Taken from [26_home_manager_machines/nix5530/justfile](../26_home_manager_machines/nix5530/justfile)

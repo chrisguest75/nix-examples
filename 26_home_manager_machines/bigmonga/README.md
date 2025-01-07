@@ -106,3 +106,6 @@ flatpak install net.werwolv.ImHex
 * How to Install and Manage GNOME Shell Extension [here](https://www.baeldung.com/linux/gnome-shell-extension)
 * Installing the NVIDIA Container Toolkit [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
 * nvidia container toolkit does not work on Docker but works in Podman [here](https://github.com/NixOS/nixpkgs/issues/337873)
+* https://www.xrdp.org/
+* https://nixos.wiki/wiki/Remote_Desktop
+* https://nixos.wiki/wiki/SSH

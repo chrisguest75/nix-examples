@@ -20,3 +20,4 @@
 * nix-tree https://github.com/utdemir/nix-tree
 * graph https://www.tweag.io/blog/2022-09-13-nixpkgs-graph/
 * Option nix --help --no-allow-symlinked-store
+* https://callistaenterprise.se/blogg/teknik/2024/11/05/nixos-1/

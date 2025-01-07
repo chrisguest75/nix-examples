@@ -47,6 +47,11 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [ 
+    # samba
+    samba4Full
+    cifs-utils
+
+    # media
     ffmpeg_7-full
     yt-dlp
     vlc
@@ -57,12 +62,14 @@
     diffoci
     diffoscope
     
+    # emulators
     mame
     hatari
     fsuae
     
     keepassxc
 
+    # gfx
     imagemagick
     grafx2
     tiled

@@ -207,29 +207,40 @@
   #  wget
         pkgs.man-pages 
         pkgs.man-pages-posix
-        
+
+        kdePackages.kate
+
         lshw
         zip
-        kdePackages.kate
         unzip
+
         file
 	      vscode
+
+        screen
 	      tmux
+
 	      git
+        gh
+        git-extras
+        commitizen
+        pre-commit
+
         oh-my-zsh
         zsh
         zsh-completions
  	      zsh-powerlevel10k
 	      zsh-syntax-highlighting
-        commitizen
-        pre-commit
+
         just
-        gh
+
         nmap
-        git-extras
+
         hurl
+
         jq
         yq-go
+
         dive
         skaffold
         

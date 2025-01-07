@@ -239,11 +239,21 @@
 
   virtualisation.docker.enable = true;
 
-  #fileSystems."/run/media/shmuel/PersonalData" = {
-  #    device = "/dev/disk/by-uuid/22EC446AEC4439F5";
-  #    options = ["nofail"];
-  #};
+  # Find IDs using - ls -lha /dev/disk/by-uuid
+  fileSystems."/run/media/chrisguest/sdc" = {
+      device = "/dev/disk/by-uuid/2d26ab33-dcb7-4116-9260-edf73df93856";
+      options = ["nofail"];
+  };
 
+  fileSystems."/run/media/chrisguest/sda" = {
+      device = "/dev/disk/by-uuid/a8db8fac-af8d-4950-b57b-2a4290f77a5c";
+      options = ["nofail"];
+  };
+
+  fileSystems."/run/media/chrisguest/nvme0n1" = {
+      device = "/dev/disk/by-uuid/61b9a834-a285-4e5b-810f-5eceb7c03324";
+      options = ["nofail"];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

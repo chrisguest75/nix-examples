@@ -109,6 +109,10 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
+  services.xrdp.enable = true;
+  services.xrdp.defaultWindowManager = "startplasma-x11";
+  services.xrdp.openFirewall = true;
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "gb";
@@ -167,9 +171,6 @@
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -195,7 +196,7 @@
       # Forbid root login through SSH.
       PermitRootLogin = "no";
       # Use keys only. Remove if you want to SSH using password (not recommended)
-      PasswordAuthentication = false;
+      PasswordAuthentication = true;
     };
   };
 
@@ -237,6 +238,12 @@
   services.flatpak.enable = true;
 
   virtualisation.docker.enable = true;
+
+  #fileSystems."/run/media/shmuel/PersonalData" = {
+  #    device = "/dev/disk/by-uuid/22EC446AEC4439F5";
+  #    options = ["nofail"];
+  #};
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

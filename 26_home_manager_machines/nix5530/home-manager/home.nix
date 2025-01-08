@@ -47,6 +47,7 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [ 
+    # media
     ffmpeg_7-full
     yt-dlp
     vlc
@@ -66,6 +67,7 @@
     
     keepassxc
 
+    # graphics
     imagemagick
     grafx2
     tiled
@@ -77,15 +79,18 @@
 
     gnumake
 
+    # python
     python312
     cookiecutter
 
     chromium
 
-    gpu-viewer
-
     tmuxinator
+
+    # resources
     htop
+    gpu-viewer
+    gdu
 
     # not working or clashing
     #imhex

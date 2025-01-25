@@ -250,6 +250,22 @@
 
   virtualisation.docker.enable = true;
 
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [(pkgs.OVMF.override {
+          secureBoot = true;
+          tpmSupport = true;
+        }).fd];
+      };
+    };
+  };
+
   # Find IDs using - ls -lha /dev/disk/by-uuid
   fileSystems."/run/media/chrisguest/sdc" = {
       device = "/dev/disk/by-uuid/2d26ab33-dcb7-4116-9260-edf73df93856";

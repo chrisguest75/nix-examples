@@ -244,6 +244,8 @@
         dive
         skaffold
         
+        virt-manager 
+        virt-viewer
   ];
 
   services.flatpak.enable = true;

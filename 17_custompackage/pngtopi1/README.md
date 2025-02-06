@@ -10,6 +10,9 @@ nix-build ./pngtopi1.nix
 
 # pkgs.callPackage
 nix-build -E 'let pkgs = import <nixpkgs> { }; in pkgs.callPackage ./pngtopi1.nix {}'
+
+# use built binary
+./result/bin/pngtopi1
 ```
 
 ## Resources

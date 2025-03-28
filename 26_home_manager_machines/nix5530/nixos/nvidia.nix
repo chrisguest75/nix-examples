@@ -2,7 +2,7 @@
 
 {
   # Enable OpenGL
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
   };
   # Load nvidia driver for Xorg and Wayland

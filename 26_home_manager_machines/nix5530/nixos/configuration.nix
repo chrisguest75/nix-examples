@@ -200,7 +200,6 @@
         zip
         unzip
         file
-	      vscode
 	      tmux
 	      git
         oh-my-zsh

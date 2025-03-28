@@ -21,6 +21,9 @@ nix flake update
 
 # check build 
 nixos-rebuild build --flake .#nix5530-nixos
+
+
+sudo nixos-rebuild boot --flake .#nix5530-nixos
 ```
 
 

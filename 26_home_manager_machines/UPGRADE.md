@@ -2,6 +2,12 @@
 
 Upgrading NixOS
 
+TODO:
+
+* Upgrading vscode does not work. `NIXPKGS_ALLOW_UNFREE=1 nix-shell -p vscode --command code`
+
+## Configure
+
 ```sh
 nix-channel --list
 sudo nix-channel --list
@@ -30,9 +36,6 @@ sudo nixos-rebuild switch --flake .#nix5530-nixos
 # tidy up space
 nix-collect-garbage
 ```
-
-
-
 
 ## Resources
 

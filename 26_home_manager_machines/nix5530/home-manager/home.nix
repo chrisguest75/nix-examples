@@ -98,14 +98,12 @@
     #nvtopPackages.nvidia
   ];
 
-  # programs.vscode = {
-  #   enable = true;
-  #   extensions = with pkgs.vscode-extensions; [
-  #     dracula-theme.theme-dracula
-  #     vscodevim.vim
-  #     yzhang.markdown-all-in-one
-  #   ];
-  # };
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      yzhang.markdown-all-in-one
+    ];
+  };
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

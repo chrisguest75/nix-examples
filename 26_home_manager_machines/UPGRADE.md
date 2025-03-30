@@ -8,7 +8,10 @@ TODO:
 
 ## Configure
 
+### Channels
+
 ```sh
+# list channels (I'm using flakes so this doesn't really matter)
 nix-channel --list
 sudo nix-channel --list
 
@@ -16,10 +19,14 @@ sudo nix-channel --list
 #nixos https://nixos.org/channels/nixos-24.05
 #nixpkgs-unstable https://nixos.org/channels/nixpkgs-unstable
 
+# updating those channels
 nix-channel --update
 sudo nix-channel --update
+```
 
+### Rebuild OS
 
+```sh
 cd 26_home_manager_machines/nix5530
 # modify flake.nix with new version
 # then update lock
@@ -31,10 +38,21 @@ nixos-rebuild build --flake .#nix5530-nixos
 
 sudo nixos-rebuild boot --flake .#nix5530-nixos
 
+# saves a restore point?
 sudo nixos-rebuild switch --flake .#nix5530-nixos
 
 # tidy up space
 nix-collect-garbage
+```
+
+## Profiles
+
+NOTE: I had an issue where vscode was pointing to the wrong version because the .nix-profile symlink was incorrect. It was fxed by removing vscode from profile and readding using home-manager.  
+
+```sh
+nix profile list
+
+nix profile remove vscode
 ```
 
 ## Resources

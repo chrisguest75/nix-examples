@@ -26,5 +26,17 @@ just monitor-gpu
 
 To test GPU use [chrisguest75/docker_examples/blob/master/A2_gpu/README.md](https://github.com/chrisguest75/docker_examples/blob/master/A2_gpu/README.md)  
 
+## Docker
+
+From Enable CDI devices [here](https://docs.docker.com/reference/cli/dockerd/#enable-cdi-devices)
+
+```sh
+# get CDI spec directories
+docker info
+
+# this file looks as though it controls how nvidia tooling is mapped in.
+cat /var/run/cdi/nvidia-container-toolkit.json
+```
+
 ## Resources
 

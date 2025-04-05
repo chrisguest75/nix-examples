@@ -2,6 +2,11 @@
 
 Demonstrate how to use the Determinate Systems Installer.  
 
+TODO:
+
+* Use the deteminate system pkg https://docs.determinate.systems/getting-started/individuals
+* Flakehub https://flakehub.com/
+
 ## Install
 
 ### WSL

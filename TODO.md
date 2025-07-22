@@ -21,3 +21,14 @@
 * graph https://www.tweag.io/blog/2022-09-13-nixpkgs-graph/
 * Option nix --help --no-allow-symlinked-store
 * https://callistaenterprise.se/blogg/teknik/2024/11/05/nixos-1/
+
+* Niv? 
+  * https://github.com/nmattia/niv
+  * https://nix.dev/tutorials/towards-reproducibility-pinning-nixpkgs
+* Fast, Declarative, Reproducible, and Composable Developer Environments using Nix [here](https://devenv.sh/getting-started/)  
+* Linux
+  * https://github.com/jordanisaacs/kernel-module-flake
+  * https://phip1611.de/blog/building-an-out-of-tree-linux-kernel-module-in-nix/
+  * Buildroot [here](https://buildroot.org/)  
+  * https://nixos.wiki/wiki/Creating_a_NixOS_live_CD
+  

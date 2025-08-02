@@ -140,6 +140,9 @@
     packages = with pkgs; [
     #  thunderbird
     ];
+    #openssh.authorizedKeys.keyFiles = [
+    #  /home/chrisguest/.ssh/authorized_keys
+    #];
   };
 
   programs.nix-ld.enable = true;
@@ -183,7 +186,7 @@
       PermitRootLogin = "no";
       # Use keys only. Remove if you want to SSH using password (not recommended)
       # To use ssh-copy-id quickly enable this option and then revert it.
-      PasswordAuthentication = false;
+      PasswordAuthentication = true;
     };
   };
 
@@ -200,6 +203,7 @@
         unzip
         file
 	      tmux
+        screen
 	      git
         oh-my-zsh
         zsh

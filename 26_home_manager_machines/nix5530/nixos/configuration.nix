@@ -224,6 +224,9 @@
 
   services.flatpak.enable = true;
 
+  # Enable Tailscale for secure networking.
+  services.tailscale.enable = true;
+
   virtualisation.docker.enable = true;
 
   virtualisation.libvirtd = {
